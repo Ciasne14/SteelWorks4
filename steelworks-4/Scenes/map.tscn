@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c31fxycel1cny"]
+
+[ext_resource type="Texture2D" uid="uid://urh6r1bftkom" path="res://icon.svg" id="1_26yhd"]
+[ext_resource type="PackedScene" uid="uid://drxxac843ej7c" path="res://Scenes/tent.tscn" id="2_p3ir5"]
+[ext_resource type="PackedScene" uid="uid://dvx77y4hvs6rl" path="res://Scenes/test.tscn" id="3_p3ir5"]
+
+[node name="Map" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(209, 213)
+scale = Vector2(3.3125, 3.3125)
+texture = ExtResource("1_26yhd")
+
+[node name="Tent" parent="." instance=ExtResource("2_p3ir5")]
+position = Vector2(70, 271)
+
+[node name="minigame" parent="Tent" instance=ExtResource("3_p3ir5")]
+
+[node name="Tent2" parent="." instance=ExtResource("2_p3ir5")]
+position = Vector2(351, 162)
+
+[node name="minigame" parent="Tent2" instance=ExtResource("3_p3ir5")]
