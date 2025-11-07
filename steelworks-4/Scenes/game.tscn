@@ -7,9 +7,11 @@
 
 [node name="Map" parent="." instance=ExtResource("1_ebmjs")]
 
-[node name="Camera2D" type="Camera2D" parent="Map"]
-position = Vector2(577, 324)
-
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_qxrlw")]
 position = Vector2(585, 620)
 collision_layer = 2
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(0, -65)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
