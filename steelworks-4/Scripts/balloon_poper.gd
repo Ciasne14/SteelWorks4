@@ -35,6 +35,8 @@ func _spawn_balloon():
 
 func add_score(points: int):
 	score += points
+	if(score>349):
+		print("Wygrana")
 	_update_ui()
 
 func lose_life():
