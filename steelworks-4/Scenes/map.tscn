@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c31fxycel1cny"]
+[gd_scene load_steps=6 format=3 uid="uid://c31fxycel1cny"]
 
 [ext_resource type="Texture2D" uid="uid://urh6r1bftkom" path="res://icon.svg" id="1_26yhd"]
 [ext_resource type="PackedScene" uid="uid://yvo3da4iw4py" path="res://Scenes/transition.tscn" id="2_p3ir5"]
 [ext_resource type="PackedScene" uid="uid://bov6hi1kghpi0" path="res://Scenes/balloon_poper.tscn" id="3_myvm1"]
+[ext_resource type="PackedScene" uid="uid://dmvikv0mb22rk" path="res://slot_machine.tscn" id="4_myvm1"]
+[ext_resource type="PackedScene" uid="uid://dw2ew71grxsg" path="res://dice_game.tscn" id="5_q0mm3"]
 
 [node name="Map" type="Node2D"]
 
@@ -12,5 +14,13 @@ scale = Vector2(15.007813, 8.5234375)
 texture = ExtResource("1_26yhd")
 
 [node name="transition" parent="." instance=ExtResource("2_p3ir5")]
-position = Vector2(115, 379)
+position = Vector2(169, 634)
 target_scene = ExtResource("3_myvm1")
+
+[node name="transition2" parent="." instance=ExtResource("2_p3ir5")]
+position = Vector2(828, 250)
+target_scene = ExtResource("4_myvm1")
+
+[node name="transition3" parent="." instance=ExtResource("2_p3ir5")]
+position = Vector2(1605, 638)
+target_scene = ExtResource("5_q0mm3")

@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://3cw2pi4d5jnf"]
+[gd_scene load_steps=2 format=3 uid="uid://2qpc8vkinwe0"]
 
-[ext_resource type="Script" uid="uid://blx24e67fyklm" path="res://Scripts/back.gd" id="1_rpsj0"]
+[ext_resource type="Script" uid="uid://blx24e67fyklm" path="res://Scripts/back.gd" id="1_1cmwl"]
 
 [node name="Button" type="Button"]
 offset_right = 8.0
@@ -8,6 +8,6 @@ offset_bottom = 8.0
 text = "Back"
 icon_alignment = 1
 vertical_icon_alignment = 2
-script = ExtResource("1_rpsj0")
+script = ExtResource("1_1cmwl")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

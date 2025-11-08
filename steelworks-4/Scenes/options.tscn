@@ -11,10 +11,9 @@ theme_override_constants/separation = 100
 alignment = 1
 
 [node name="Button" parent="VBoxContainer" instance=ExtResource("1_5v8ap")]
-custom_minimum_size = Vector2(350, 0)
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 30
 
 [node name="mainvolume" type="HSlider" parent="VBoxContainer"]
 custom_minimum_size = Vector2(350, 0)

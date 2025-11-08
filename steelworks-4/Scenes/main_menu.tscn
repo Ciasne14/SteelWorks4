@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bckybmk626j10"]
+[gd_scene load_steps=10 format=3 uid="uid://bckybmk626j10"]
 
 [ext_resource type="PackedScene" uid="uid://x1yh7yc6vtcn" path="res://Scenes/player.tscn" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://cr38grjf305ih" path="res://Assets/mainmenu.png" id="1_n45e2"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://chx7s8mc1u127" path="res://Scenes/game.tscn" id="5_cp0ys"]
 [ext_resource type="PackedScene" uid="uid://b65vw3mgc3gww" path="res://Scenes/options.tscn" id="6_opfnp"]
 [ext_resource type="PackedScene" uid="uid://bomsn1mjnhtxc" path="res://Scenes/credits.tscn" id="6_yhxw7"]
+[ext_resource type="PackedScene" uid="uid://bkrifrt08yicv" path="res://Scenes/optionsSign.tscn" id="7_yhxw7"]
+[ext_resource type="PackedScene" uid="uid://edcv2ujrcwra" path="res://Scenes/creditsSign.tscn" id="8_trj04"]
+[ext_resource type="PackedScene" uid="uid://c0dnlp43kt1u0" path="res://Scenes/exit.tscn" id="9_trj04"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -15,55 +18,29 @@ position = Vector2(960, 540)
 texture = ExtResource("1_n45e2")
 
 [node name="player" parent="." instance=ExtResource("1_28flt")]
-position = Vector2(958, 759)
+position = Vector2(958, 835)
 
 [node name="Play" parent="." instance=ExtResource("4_opfnp")]
-position = Vector2(945, 346)
+position = Vector2(960, -2)
 target_scene = ExtResource("5_cp0ys")
 
-[node name="Label4" type="Label" parent="Play"]
-offset_left = -113.0
-offset_top = 5.0
-offset_right = 118.0
-offset_bottom = 47.0
-theme_override_font_sizes/font_size = 30
-text = "Enter the Circus"
-metadata/_edit_use_anchors_ = true
-
 [node name="Credits" parent="." instance=ExtResource("4_opfnp")]
-position = Vector2(1520, 679)
+position = Vector2(1991, 867)
 target_scene = ExtResource("6_yhxw7")
 
-[node name="Label4" type="Label" parent="Credits"]
-offset_left = -51.0
-offset_top = -1.0
-offset_right = 180.0
-offset_bottom = 41.0
-theme_override_font_sizes/font_size = 30
-text = "Credits"
-metadata/_edit_use_anchors_ = true
-
 [node name="Exit" parent="." instance=ExtResource("4_opfnp")]
-position = Vector2(939, 1055)
+position = Vector2(962, 1223)
 exits_game = true
 
-[node name="Label3" type="Label" parent="Exit"]
-offset_left = -31.0
-offset_top = -178.0
-offset_right = 200.0
-offset_bottom = -136.0
-theme_override_font_sizes/font_size = 30
-text = "Exit"
-metadata/_edit_use_anchors_ = true
-
 [node name="Options" parent="." instance=ExtResource("4_opfnp")]
-position = Vector2(386, 677)
+position = Vector2(-73, 871)
 target_scene = ExtResource("6_opfnp")
 
-[node name="Label2" type="Label" parent="Options"]
-offset_left = -58.0
-offset_top = 1.0
-offset_right = 173.0
-offset_bottom = 43.0
-theme_override_font_sizes/font_size = 30
-text = "Options"
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("7_yhxw7")]
+position = Vector2(963, 540)
+
+[node name="AnimatedSprite2D2" parent="." instance=ExtResource("8_trj04")]
+position = Vector2(958, 543)
+
+[node name="AnimatedSprite2D3" parent="." instance=ExtResource("9_trj04")]
+position = Vector2(963, 539)
