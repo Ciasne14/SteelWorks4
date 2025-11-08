@@ -1,12 +1,6 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=2 format=3 uid="uid://dbhf0bpgqhlux"]
-
-[ext_resource type="Script" uid="uid://cwpew5awq28n7" path="res://Scripts/wander_controller.gd" id="1_23une"]
-=======
 [gd_scene load_steps=2 format=3 uid="uid://bdtlkfpx3txk7"]
 
 [ext_resource type="Script" uid="uid://dg3g7tes5t1tf" path="res://Scripts/wander_controller.gd" id="1_23une"]
->>>>>>> Stashed changes
 
 [node name="WanderController" type="Node2D"]
 script = ExtResource("1_23une")

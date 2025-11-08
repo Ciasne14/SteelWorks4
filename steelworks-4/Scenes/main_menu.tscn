@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://natohm0dv3ng"]
+[gd_scene load_steps=11 format=3 uid="uid://bckybmk626j10"]
 
 [ext_resource type="PackedScene" uid="uid://x1yh7yc6vtcn" path="res://Scenes/player.tscn" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://cr38grjf305ih" path="res://Assets/mainmenu.png" id="1_n45e2"]
@@ -6,9 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://chx7s8mc1u127" path="res://Scenes/game.tscn" id="5_cp0ys"]
 [ext_resource type="PackedScene" uid="uid://b65vw3mgc3gww" path="res://Scenes/options.tscn" id="6_opfnp"]
 [ext_resource type="PackedScene" uid="uid://bomsn1mjnhtxc" path="res://Scenes/credits.tscn" id="6_yhxw7"]
-[ext_resource type="PackedScene" path="res://Scenes/optionsSign.tscn" id="7_yhxw7"]
-[ext_resource type="PackedScene" path="res://Scenes/creditsSign.tscn" id="8_trj04"]
-[ext_resource type="PackedScene" path="res://Scenes/exit.tscn" id="9_trj04"]
+[ext_resource type="PackedScene" uid="uid://bkrifrt08yicv" path="res://Scenes/optionsSign.tscn" id="7_yhxw7"]
+[ext_resource type="PackedScene" uid="uid://edcv2ujrcwra" path="res://Scenes/creditsSign.tscn" id="8_trj04"]
+[ext_resource type="PackedScene" uid="uid://c0dnlp43kt1u0" path="res://Scenes/exit.tscn" id="9_trj04"]
+[ext_resource type="PackedScene" uid="uid://cak8dglk5h4y7" path="res://Scenes/enemy.tscn" id="10_16hvj"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -44,3 +45,6 @@ position = Vector2(958, 543)
 
 [node name="AnimatedSprite2D3" parent="." instance=ExtResource("9_trj04")]
 position = Vector2(963, 539)
+
+[node name="Enemy" parent="." instance=ExtResource("10_16hvj")]
+position = Vector2(1609, 797)

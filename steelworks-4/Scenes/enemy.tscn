@@ -1,8 +1,16 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=9 format=3 uid="uid://c8lnm3l62hfgj"]
 
 [ext_resource type="Script" uid="uid://cr5c7hf3sbv11" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://bo218rijjy35x" path="res://Assets/animation.png" id="2_afpow"]
 [ext_resource type="PackedScene" uid="uid://dbhf0bpgqhlux" path="res://Scenes/wander_controller.tscn" id="3_afpow"]
+=======
+[gd_scene load_steps=9 format=3 uid="uid://cak8dglk5h4y7"]
+
+[ext_resource type="Script" uid="uid://bd2chsy8wlw7x" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://bo218rijjy35x" path="res://Assets/animation.png" id="2_afpow"]
+[ext_resource type="PackedScene" uid="uid://bdtlkfpx3txk7" path="res://Scenes/wander_controller.tscn" id="3_afpow"]
+>>>>>>> Stashed changes
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_287tu"]
 atlas = ExtResource("2_afpow")
