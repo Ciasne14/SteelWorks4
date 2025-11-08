@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfoq6i68ntvvd"]
+
+[ext_resource type="Script" uid="uid://dfx27ow5dmvoi" path="res://hammer_scene.gd" id="1_e2e6v"]
+
+[node name="HammerScene" type="Node2D"]
+script = ExtResource("1_e2e6v")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = 97.0
+offset_right = 372.0
+offset_bottom = 1022.0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+fill_mode = 3
+show_percentage = false
