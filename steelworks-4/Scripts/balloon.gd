@@ -3,6 +3,9 @@ extends Area2D
 @export var float_speed := -80.0
 @export var pop_score := 10
 
+func _ready():
+	$Sprite2D.modulate = Color(randf(), randf(), randf())
+
 func _physics_process(delta):
 	position.y += float_speed * delta
 	if position.y < -100:

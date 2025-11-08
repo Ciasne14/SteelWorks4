@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dymlyg24lxm8k"]
 
-[ext_resource type="Texture2D" uid="uid://b7crssimrcikc" path="res://Assets/circle.png" id="1_n2rxu"]
 [ext_resource type="Script" uid="uid://b5p6a1muqfpl4" path="res://Scripts/balloon.gd" id="1_r345k"]
+[ext_resource type="Texture2D" uid="uid://gh3refyjkh5r" path="res://Scenes/balon.png" id="2_4wcav"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mv2x6"]
 radius = 87.02299
@@ -22,7 +22,8 @@ _data = {
 script = ExtResource("1_r345k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_n2rxu")
+position = Vector2(12, 52)
+texture = ExtResource("2_4wcav")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mv2x6")
