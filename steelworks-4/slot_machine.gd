@@ -47,7 +47,6 @@ func _on_spin_pressed():
 
 # Funkcja do rozpoczęcia obrotu bębna
 func start_reel_spin(reel_index):
-	
 	stop_reel_spin(reel_index)
 
 # Funkcja do zatrzymania bębna
@@ -77,8 +76,6 @@ func check_result():
 func _on_button_pressed() -> void:
 	_on_spin_pressed()
 
-
-	
 func updateTicketBetValue(ticketsUsed):
 	tickets = tickets - ticketsUsed
 	bet = bet + ticketsUsed
