@@ -13,7 +13,6 @@ var score := 0
 @onready var dice_button := $DicePlayer/DiceButton
 @onready var bet_more_button := $DicePlayer/BetHigher
 @onready var bet_less_button := $DicePlayer/BetLower
-@onready var score_label := $CanvasLayer/ScoreLabel
 
 var less: bool
 
@@ -32,8 +31,8 @@ func _roll_table():
 	var evil_roll_1 = randi_range(1,6)
 	var evil_roll_2 = randi_range(1,6)
 	
-	$DicePlayer/EvilDie1.texture = load("res://Assets/Dice/dieRed"+str(evil_roll_1)+".png")
-	$DicePlayer/EvilDie2.texture = load("res://Assets/Dice/dieRed"+str(evil_roll_2)+".png")
+	$DicePlayer/EvilDie1.play("die"+str(evil_roll_1))
+	$DicePlayer/EvilDie2.play("die"+str(evil_roll_2))
 	roll_result = evil_roll_1 + evil_roll_2  # Suma dwóch kości od 2 do 12
 
 # Generowanie wyniku gracza
@@ -41,21 +40,22 @@ func _roll_player():
 	var player_roll_1 = randi_range(1,6)
 	var player_roll_2 = randi_range(1,6)
 	
-	$DicePlayer/PlayerDie1.texture = load("res://Assets/Dice/dieWhite"+str(player_roll_1)+".png")
-	$DicePlayer/PlayerDie2.texture = load("res://Assets/Dice/dieWhite"+str(player_roll_2)+".png")
+	$DicePlayer/PlayerDie1.play("die"+str(player_roll_1))
+	$DicePlayer/PlayerDie2.play("die"+str(player_roll_2))
 	player_roll = player_roll_1 + player_roll_2  # Suma dwóch kości od 2 do 12
 	
 	if(less && player_roll < roll_result):
-		$GameResult.text = "Gratuluję! " +str(player_roll)+ " to MNIEJ niż moje " +str(roll_result)
+		score=score+350
 	elif(less && player_roll > roll_result):
-		$GameResult.text = "Niestety! " +str(player_roll)+ " to WIĘCEJ niż moje " +str(roll_result)
+		score=score-50
 	elif(!less && player_roll < roll_result):
-		$GameResult.text = "Niestety! " +str(player_roll)+ " to MNIEJ niż moje " +str(roll_result)
+		score=score-50
 	elif(!less && player_roll > roll_result):
-		$GameResult.text = "Gratuluję! " +str(player_roll)+ " to WIĘCEJ niż moje " +str(roll_result)
+		score=score+350
 	else:
-		$GameResult.text = "REMIS GŁUPCZE!"
-
+		score=score-50
+	if(score>349):
+		print("Wygrana")
 # Obstawienie "więcej"
 func _on_bet_more_pressed():
 	less = false
