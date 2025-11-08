@@ -5,21 +5,26 @@ var str_value = 0
 @export var strike = 5
 var jump_force = 15
 
+
 @onready var ball : RigidBody2D = $RigidBody2D
 
 func _ready() -> void:
 	$AnimatedSprite2D.play()
-	$RigidBody2D2/Sprite2D.play()
+	$hammer.play()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("hammer"):
 		str_value = str_value +strike
 		$ProgressBar.value = str_value
 	if Input.is_action_just_pressed("strike"):
-		$RigidBody2D2.gravity_scale = 10
-		$RigidBody2D2/hammerfall.start()
+		$AnimationPlayer.play("hammer")
+		$hammer/hammerfall.start()
 		$Label.text = str(str_value)
-
+	if $RigidBody2D.linear_velocity.length() > 0:
+		$RigidBody2D/PointLight2D.visible = true
+	else:
+		$RigidBody2D/PointLight2D.visible = false
+		
 func _on_expire_timer_timeout() -> void:
 	if(str_value>11):
 		str_value =  str_value-exhaustion
@@ -34,3 +39,4 @@ func jump_ball():
 
 func _on_hammerfall_timeout() -> void:
 	jump_ball()
+	$RigidBody2D/PointLight2D.visible = true
