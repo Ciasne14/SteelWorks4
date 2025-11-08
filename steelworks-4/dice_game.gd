@@ -28,6 +28,7 @@ func _ready():
 # Generowanie wyniku na stole
 func _roll_table():
 
+	
 	var evil_roll_1 = randi_range(1,6)
 	var evil_roll_2 = randi_range(1,6)
 	
@@ -37,6 +38,7 @@ func _roll_table():
 
 # Generowanie wyniku gracza
 func _roll_player():
+
 	var player_roll_1 = randi_range(1,6)
 	var player_roll_2 = randi_range(1,6)
 	
@@ -45,19 +47,23 @@ func _roll_player():
 	player_roll = player_roll_1 + player_roll_2  # Suma dwóch kości od 2 do 12
 	
 	if(less && player_roll < roll_result):
-		score=score+350
+		score=score+50
 	elif(less && player_roll > roll_result):
 		score=score-50
 	elif(!less && player_roll < roll_result):
 		score=score-50
 	elif(!less && player_roll > roll_result):
-		score=score+350
+		score=score+50
 	else:
 		score=score-50
+	$Label2.text = str(score)
 	if(score>349):
 		print("Wygrana")
 # Obstawienie "więcej"
 func _on_bet_more_pressed():
+	$DicePlayer/DiceButton.visible = true
+	$DicePlayer/BetLower.visible = false
+	$DicePlayer/BetHigher.visible = false
 	less = false
 	$AnimationPlayer.play("PlayerCupRoll")
 	$PlayerCup/PlayerCupTimer.start()
@@ -66,6 +72,9 @@ func _on_bet_more_pressed():
 
 # Obstawienie "mniej"
 func _on_bet_less_pressed():
+	$DicePlayer/DiceButton.visible = true
+	$DicePlayer/BetLower.visible = false
+	$DicePlayer/BetHigher.visible = false
 	less = true
 	$AnimationPlayer.play("PlayerCupRoll")
 	$PlayerCup/PlayerCupTimer.start()
@@ -74,6 +83,9 @@ func _on_bet_less_pressed():
 
 # Rzut kośćmi
 func _on_roll_pressed():
+	$DicePlayer/DiceButton.visible = false
+	$DicePlayer/BetLower.visible = true
+	$DicePlayer/BetHigher.visible = true
 	$AnimationPlayer.play("EvilCupRoll")
 	$DicePlayer/EvilDie1.visible = false
 	$DicePlayer/EvilDie2.visible = false

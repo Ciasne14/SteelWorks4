@@ -244,9 +244,10 @@ text = "Roll"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/DiceButton"]
 position = Vector2(95, 39)
 sprite_frames = SubResource("SpriteFrames_gn3yh")
-frame_progress = 0.106860824
+frame_progress = 0.6123385
 
 [node name="BetLower" type="Button" parent="DicePlayer"]
+visible = false
 offset_left = 244.0
 offset_top = 517.0
 offset_right = 460.0
@@ -256,9 +257,10 @@ text = "Lower"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/BetLower"]
 position = Vector2(108, 30)
 sprite_frames = SubResource("SpriteFrames_uc315")
-frame_progress = 0.49112415
+frame_progress = 0.99660516
 
 [node name="BetHigher" type="Button" parent="DicePlayer"]
+visible = false
 offset_left = 1425.0
 offset_top = 522.0
 offset_right = 1645.0
@@ -268,7 +270,7 @@ text = "Higher"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/BetHigher"]
 position = Vector2(106, 43)
 sprite_frames = SubResource("SpriteFrames_ibi2q")
-frame_progress = 0.6328021
+frame_progress = 0.13827896
 
 [node name="Cup" type="Sprite2D" parent="."]
 position = Vector2(705, -186)
@@ -292,6 +294,20 @@ one_shot = true
 libraries = {
 &"": SubResource("AnimationLibrary_yqda1")
 }
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1472.0
+offset_top = 797.0
+offset_right = 1734.0
+offset_bottom = 1030.0
+text = "Rzuć wyzwanie w kości. Wybierz, czy jesteś w stanie wyrzucić więcej, czy mniej oczek. Za poprawną odpowiedź dostaniesz 50 punktów, za złą, tyle samo stracisz. Po 350 punktach, zakończysz ten poziom."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="timeout" from="Cup/EvilCupTimer" to="." method="_on_evil_cup_timer_timeout"]
 [connection signal="timeout" from="PlayerCup/PlayerCupTimer" to="." method="_on_player_cup_timer_timeout"]
