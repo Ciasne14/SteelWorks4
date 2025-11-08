@@ -1,10 +1,15 @@
 extends Node2D
 
 var str_value = 0
-@export var exhaustion = 7
+@export var exhaustion = 3
 @export var strike = 5
 var jump_force = 15
+
 @onready var ball : RigidBody2D = $RigidBody2D
+
+func _ready() -> void:
+	$AnimatedSprite2D.play()
+	$RigidBody2D2/Sprite2D.play()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("hammer"):
