@@ -1,7 +1,57 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw2ew71grxsg"]
+[gd_scene load_steps=18 format=3 uid="uid://dw2ew71grxsg"]
 
 [ext_resource type="Script" uid="uid://b1buqschwr4d7" path="res://dice_game.gd" id="1_a4m0k"]
-[ext_resource type="Texture2D" uid="uid://urh6r1bftkom" path="res://icon.svg" id="2_onxbv"]
+[ext_resource type="Texture2D" uid="uid://cxtjlg14oe6wj" path="res://diebackground.png" id="2_j8p6f"]
+[ext_resource type="Texture2D" uid="uid://h7merehgtskf" path="res://wiecej1.png" id="3_cjklt"]
+[ext_resource type="Texture2D" uid="uid://oj0mp3yk1ktp" path="res://mniej1.png" id="3_ibi2q"]
+[ext_resource type="Texture2D" uid="uid://bv8koqiet782q" path="res://roll1.png" id="3_uc315"]
+[ext_resource type="Texture2D" uid="uid://cmvm2xq67l6rl" path="res://cup1.png" id="3_yqda1"]
+[ext_resource type="Texture2D" uid="uid://dw8vv7jk41n7e" path="res://mniej2.png" id="4_51wdj"]
+[ext_resource type="Texture2D" uid="uid://dg3oiuquhy5sm" path="res://wiecej2.png" id="4_bfsj0"]
+[ext_resource type="Texture2D" uid="uid://mmf8ueq12cn" path="res://roll2.png" id="4_e26n0"]
+[ext_resource type="Texture2D" uid="uid://dv4mkl3gdrvb6" path="res://cup2.png" id="4_vdsmb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gn3yh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_uc315")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e26n0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uc315"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ibi2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_51wdj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ibi2q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cjklt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bfsj0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_j8p6f"]
 resource_name = "EvilCupRoll"
@@ -13,10 +63,26 @@ tracks/0/path = NodePath("Cup:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.93333334, 1.3333334, 1.5666667, 1.9666667, 2.3333333, 2.7, 2.8333333, 3),
+"times": PackedFloat32Array(0, 0.23333333, 0.5, 0.76666665, 1.0666667, 1.3666667, 1.7666667, 2.0666666, 2.3666666, 2.5333333, 2.7, 2.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1400, -645), Vector2(910, 209), Vector2(625, 255), Vector2(1047, 316), Vector2(1286, 134), Vector2(921, 153), Vector2(479.99994, 256), Vector2(1224, 279), Vector2(430, 275), Vector2(1341, 245), Vector2(908, 184), Vector2(906, -212)]
+}
+
+[sub_resource type="Animation" id="Animation_yqda1"]
+resource_name = "PlayerCupRoll"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCup:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.26666668, 0.7, 1.0333333, 1.4, 1.8666667, 2.1666667, 2.5333333, 2.9333334),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(705, -186), Vector2(500, 185), Vector2(612, 172), Vector2(830, 125), Vector2(676, 109), Vector2(507, 149), Vector2(720, 140), Vector2(591, 68), Vector2(608, -222)]
+"values": [Vector2(867, 1544), Vector2(890, 834.00006), Vector2(518, 777), Vector2(1334, 792), Vector2(772.00006, 678), Vector2(1395, 845), Vector2(506.00018, 830), Vector2(871, 777), Vector2(852.00006, 1476)]
 }
 
 [sub_resource type="Animation" id="Animation_onxbv"]
@@ -46,22 +112,6 @@ tracks/1/keys = {
 "values": [Vector2(598, 1325)]
 }
 
-[sub_resource type="Animation" id="Animation_yqda1"]
-resource_name = "PlayerCupRoll"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerCup:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.96666664, 1.2333333, 1.6333333, 2.0333333, 2.4666667, 2.7333333, 2.9666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(598, 1325), Vector2(415, 873), Vector2(815, 872.99994), Vector2(539, 831.99994), Vector2(853, 839), Vector2(428, 838.99994), Vector2(939, 863), Vector2(680, 811), Vector2(666, 1305)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yqda1"]
 _data = {
 &"EvilCupRoll": SubResource("Animation_j8p6f"),
@@ -73,80 +123,86 @@ _data = {
 script = ExtResource("1_a4m0k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="DiceRollResult" type="Label" parent="."]
-offset_left = 497.0
-offset_top = 6.0
-offset_right = 537.0
-offset_bottom = 29.0
+position = Vector2(957, 601)
+scale = Vector2(1, 1.1462964)
+texture = ExtResource("2_j8p6f")
 
 [node name="GameResult" type="Label" parent="."]
-offset_left = 497.0
-offset_top = 486.0
-offset_right = 537.0
-offset_bottom = 509.0
+offset_left = 860.0
+offset_top = 941.0
+offset_right = 900.0
+offset_bottom = 964.0
 
 [node name="DicePlayer" type="Node2D" parent="."]
 
 [node name="EvilDie1" type="Sprite2D" parent="DicePlayer"]
-position = Vector2(518, 100)
+visible = false
+position = Vector2(829, 266)
 
 [node name="EvilDie2" type="Sprite2D" parent="DicePlayer"]
-position = Vector2(666, 119)
+visible = false
+position = Vector2(977, 285)
 
 [node name="PlayerDie1" type="Sprite2D" parent="DicePlayer"]
-position = Vector2(746, 883)
+visible = false
+position = Vector2(943, 883)
 
 [node name="PlayerDie2" type="Sprite2D" parent="DicePlayer"]
-position = Vector2(614, 878)
+visible = false
+position = Vector2(811, 878)
 
 [node name="DiceButton" type="Button" parent="DicePlayer"]
-offset_left = 510.0
-offset_top = 256.0
-offset_right = 518.0
-offset_bottom = 264.0
+offset_left = 820.0
+offset_top = 516.0
+offset_right = 1025.0
+offset_bottom = 597.0
 text = "Roll"
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/DiceButton"]
+position = Vector2(95, 39)
+sprite_frames = SubResource("SpriteFrames_gn3yh")
+frame_progress = 0.35396007
+
 [node name="BetLower" type="Button" parent="DicePlayer"]
-offset_left = 161.0
-offset_top = 333.0
-offset_right = 169.0
-offset_bottom = 341.0
+offset_left = 244.0
+offset_top = 517.0
+offset_right = 460.0
+offset_bottom = 579.0
 text = "Lower"
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/BetLower"]
+position = Vector2(108, 30)
+sprite_frames = SubResource("SpriteFrames_uc315")
+frame_progress = 0.73822623
+
 [node name="BetHigher" type="Button" parent="DicePlayer"]
-offset_left = 813.0
-offset_top = 373.0
-offset_right = 821.0
-offset_bottom = 381.0
+offset_left = 1425.0
+offset_top = 522.0
+offset_right = 1645.0
+offset_bottom = 588.0
 text = "Higher"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Restart" type="Button" parent="CanvasLayer"]
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/BetHigher"]
+position = Vector2(106, 43)
+sprite_frames = SubResource("SpriteFrames_ibi2q")
+frame_progress = 0.87990427
 
 [node name="Cup" type="Sprite2D" parent="."]
 position = Vector2(705, -186)
-scale = Vector2(2.0078125, 2.859375)
-texture = ExtResource("2_onxbv")
+scale = Vector2(1.2312524, 0.8131334)
+texture = ExtResource("3_yqda1")
 
 [node name="EvilCupTimer" type="Timer" parent="Cup"]
-wait_time = 3.0
+wait_time = 2.8
 one_shot = true
 
 [node name="PlayerCup" type="Sprite2D" parent="."]
 position = Vector2(598, 1325)
-scale = Vector2(2.0078125, 2.859375)
-texture = ExtResource("2_onxbv")
+scale = Vector2(1.11328, 0.85251254)
+texture = ExtResource("4_vdsmb")
 
 [node name="PlayerCupTimer" type="Timer" parent="PlayerCup"]
-wait_time = 3.0
+wait_time = 2.8
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
