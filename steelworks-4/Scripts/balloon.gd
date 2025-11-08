@@ -4,7 +4,12 @@ extends Area2D
 @export var pop_score := 10
 
 func _ready():
-	$Sprite2D.modulate = Color(randf_range(23,42), randf_range(23,42), randf_range(23,42))
+	if(randi_range(1,5) > 2):
+		$Sprite2D.texture = load("res://Scenes/balon.png")
+	else:
+		$Sprite2D.texture = load("res://Scenes/evilBalon.png")
+		pop_score = -10
+	$Sprite2D.modulate = Color(randf_range(.23,.42), randf_range(.23,.42), randf_range(.23,.42))
 
 func _physics_process(delta):
 	position.y += float_speed * delta
