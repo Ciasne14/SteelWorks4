@@ -243,7 +243,7 @@ func _on_result_timer_timeout() -> void:
 	$Button.disabled = true
 	updateTicketBet()
 	if(tickets>999):
-		execute_last_order()
+		$LastOrderTimer.start()
 
 func play_win_sounds():
 	$Sounds/AudioStreamPlayer2D.play()
@@ -280,3 +280,7 @@ func execute_last_order():
 	get_tree().current_scene.add_child(explosion5)
 	var explosion6 = last_particle.instantiate()
 	get_tree().current_scene.add_child(explosion6)
+
+
+func _on_last_order_timer_timeout() -> void:
+	execute_last_order()

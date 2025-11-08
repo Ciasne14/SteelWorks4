@@ -354,6 +354,9 @@ vertical_alignment = 1
 autowrap_mode = 2
 justification_flags = 162
 
+[node name="LastOrderTimer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Button/ResultTimer" to="." method="_on_result_timer_timeout"]
 [connection signal="pressed" from="btn1" to="." method="_on_btn_1_pressed"]
@@ -362,3 +365,4 @@ justification_flags = 162
 [connection signal="pressed" from="btn2" to="." method="_on_btn_2_pressed"]
 [connection signal="pressed" from="btn10" to="." method="_on_btn_10_pressed"]
 [connection signal="pressed" from="btn25" to="." method="_on_btn_25_pressed"]
+[connection signal="timeout" from="LastOrderTimer" to="." method="_on_last_order_timer_timeout"]
