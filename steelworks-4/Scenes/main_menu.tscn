@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://natohm0dv3ng"]
+[gd_scene load_steps=12 format=3 uid="uid://natohm0dv3ng"]
 
 [ext_resource type="PackedScene" uid="uid://x1yh7yc6vtcn" path="res://Scenes/player.tscn" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://cr38grjf305ih" path="res://Assets/mainmenu.png" id="1_n45e2"]
@@ -9,7 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://bkrifrt08yicv" path="res://Scenes/optionsSign.tscn" id="7_yhxw7"]
 [ext_resource type="PackedScene" uid="uid://edcv2ujrcwra" path="res://Scenes/creditsSign.tscn" id="8_trj04"]
 [ext_resource type="PackedScene" uid="uid://c0dnlp43kt1u0" path="res://Scenes/exit.tscn" id="9_trj04"]
-[ext_resource type="PackedScene" path="res://Scenes/enemy.tscn" id="10_16hvj"]
+[ext_resource type="PackedScene" uid="uid://c8lnm3l62hfgj" path="res://Scenes/enemy.tscn" id="10_16hvj"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_16hvj"]
+vertices = PackedVector2Array(759.3906, 25.953125, 1296.2188, 24.039063, 1062.3203, 744.75, 853.46094, 745.52344, 1871.3125, 759.84375, 1888.3906, 878.53906, 1090.4297, 847.65625, 851.3203, 858.6719, 13.578125, 887.6328, 23.429688, 708.4297, 1058.3594, 1062.1172, 865.3281, 1064.8594)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 2), PackedInt32Array(7, 8, 9, 3), PackedInt32Array(7, 3, 2, 6, 10, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(842, 735, 748, 16, 1310, 14, 1076, 735, 1880, 750, 1900, 889, 1099, 858, 1067, 1072, 856, 1075, 842, 869, 3, 898, 14, 698)])
 
 [node name="MainMenu" type="Node2D"]
 
@@ -48,3 +53,6 @@ position = Vector2(963, 539)
 
 [node name="Enemy" parent="." instance=ExtResource("10_16hvj")]
 position = Vector2(1503, 781)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_16hvj")

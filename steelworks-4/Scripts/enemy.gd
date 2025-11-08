@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var wander_controller = $WanderController
+@onready var nav2d: NavigationAgent2D = $NavigationAgent2D
 
 var speed = 150
 enum States { Chase, Idle, Wander }
@@ -23,9 +24,6 @@ func _physics_process(delta: float) -> void:
 			var direction = (wander_controller.target_position - position).normalized()
 			velocity = direction * (speed * 0.5)
 			move_and_slide()
-
-			if position.distance_to(wander_controller.target_position) < 4:
-				wander_controller.update_target_position()
 
 		States.Idle:
 			velocity = Vector2.ZERO
