@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://x1yh7yc6vtcn"]
+[gd_scene load_steps=18 format=3 uid="uid://x1yh7yc6vtcn"]
 
 [ext_resource type="Script" uid="uid://bfec1gawwa52u" path="res://Scripts/character_movement.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bo218rijjy35x" path="res://Assets/animation.png" id="2_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://cf8jugm7kuvyx" path="res://Scenes/playerseeeepng.png" id="3_6t5aa"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cvnsp"]
 load_path = "res://.godot/imported/animation.png-5d92e7d61c9e542bc14c27c1311084ca.ctex"
@@ -136,3 +137,8 @@ frame_progress = 0.4937807
 z_index = 5
 position = Vector2(0.25, -100)
 shape = SubResource("RectangleShape2D_x3wgy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4836.9995, 233.99998)
+scale = Vector2(100.40065, -102.989944)
+texture = ExtResource("3_6t5aa")
