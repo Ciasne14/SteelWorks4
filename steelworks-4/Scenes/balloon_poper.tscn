@@ -29,14 +29,6 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="LivesLabel" type="Label" parent="CanvasLayer"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 40.0
-grow_vertical = 0
-
 [node name="RestartButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 3
 anchor_left = 1.0
@@ -47,3 +39,13 @@ offset_left = -8.0
 offset_top = -8.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1598.0
+offset_top = 365.0
+offset_right = 1836.0
+offset_bottom = 778.0
+text = "Przebijaj balony, ale uważaj na nawiedzone. Za każdy normalny dostaniesz 10 punktów, a za nawiedzony stracisz 10. Po uzyskaniu 350, zakończysz ten poziom."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
