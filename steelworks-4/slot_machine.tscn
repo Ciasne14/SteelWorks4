@@ -1,18 +1,18 @@
-[gd_scene load_steps=30 format=3 uid="uid://dmvikv0mb22rk"]
+[gd_scene load_steps=31 format=3 uid="uid://dmvikv0mb22rk"]
 
 [ext_resource type="Script" uid="uid://vt46scjtgrst" path="res://slot_machine.gd" id="1_agdmm"]
 [ext_resource type="PackedScene" uid="uid://cd5gb2jidlllp" path="res://roll_particle.tscn" id="2_nmlme"]
 [ext_resource type="PackedScene" uid="uid://x8d80h7ki5jx" path="res://shader.tscn" id="3_4tvcy"]
 [ext_resource type="Texture2D" uid="uid://bh2swlv2fs3py" path="res://Assets/arms/image1.png" id="3_842tv"]
 [ext_resource type="Texture2D" uid="uid://r857088babo4" path="res://Assets/arms/image2.png" id="4_7abct"]
-[ext_resource type="Script" uid="uid://bkfjb6afvr3po" path="res://arm_controller.gd" id="4_jfulg"]
+[ext_resource type="Script" path="res://arm_controller.gd" id="4_jfulg"]
 [ext_resource type="Texture2D" uid="uid://j1br35jeclu5" path="res://Assets/arms/image4.png" id="5_kpwbf"]
 [ext_resource type="Texture2D" uid="uid://dpe7b2qe316pu" path="res://Assets/arms/image9.png" id="6_kpwbf"]
 [ext_resource type="Texture2D" uid="uid://d211u1lc228fh" path="res://Assets/arms/image11.png" id="7_jfulg"]
 [ext_resource type="Texture2D" uid="uid://bxee2hdx6agca" path="res://Assets/arms/image7.png" id="9_bjjkd"]
 [ext_resource type="Texture2D" uid="uid://bhd7xjn1ba63" path="res://Assets/arms/image8.png" id="10_3ucdj"]
 [ext_resource type="Texture2D" uid="uid://cs4slsr7xcofl" path="res://Assets/arms/image6.png" id="11_4tvcy"]
-[ext_resource type="Shader" uid="uid://rj8jjtxjeb23" path="res://slot_machine.gdshader" id="12_3ucdj"]
+[ext_resource type="Shader" path="res://slot_machine.gdshader" id="12_3ucdj"]
 [ext_resource type="Texture2D" uid="uid://5hix8318c22k" path="res://panel.png" id="13_et0hv"]
 [ext_resource type="AudioStream" uid="uid://c2mjx4yfvqyau" path="res://woo.mp3" id="14_wxo0u"]
 [ext_resource type="AudioStream" uid="uid://d1yesgg46vfdf" path="res://background.mp3" id="15_fj6df"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://dr2towgkdq86a" path="res://button.png" id="20_h3lt6"]
 [ext_resource type="FontFile" uid="uid://bfu223jr6vile" path="res://October Crow.ttf" id="21_qbg7i"]
 [ext_resource type="VideoStream" uid="uid://bk8taou5eme5k" path="res://win.ogv" id="22_vgm0d"]
+[ext_resource type="PackedScene" uid="uid://cdhupjxsskcdo" path="res://old_shader.tscn" id="24_4v34l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4tvcy"]
 shader = ExtResource("12_3ucdj")
@@ -86,6 +87,35 @@ tracks/2/keys = {
 "values": [Vector2(290, 97), Vector2(649, -28), Vector2(877, 200)]
 }
 
+[sub_resource type="Animation" id="Animation_4v34l"]
+resource_name = "PlayIdle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(830, 250), Vector2(860, 280), Vector2(890, 310), Vector2(860, 280), Vector2(830, 250)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Info:theme_override_font_sizes/font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [80, 90, 80, 90, 80]
+}
+
 [sub_resource type="Animation" id="Animation_mcdas"]
 length = 0.001
 tracks/0/type = "value"
@@ -123,35 +153,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(877, 185)]
-}
-
-[sub_resource type="Animation" id="Animation_4v34l"]
-resource_name = "PlayIdle"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(830, 250), Vector2(860, 280), Vector2(890, 310), Vector2(860, 280), Vector2(830, 250)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/Info:theme_override_font_sizes/font_size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [80, 90, 80, 90, 80]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4v34l"]
@@ -283,9 +284,9 @@ texture = ExtResource("13_et0hv")
 [node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(442, 50)
 offset_left = -22.0
-offset_top = 426.0
+offset_top = 405.0
 offset_right = 420.0
-offset_bottom = 457.0
+offset_bottom = 455.0
 theme_override_fonts/font = ExtResource("21_qbg7i")
 theme_override_font_sizes/font_size = 32
 disabled = true
@@ -384,6 +385,19 @@ text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AvailableTickets2" type="Label" parent="AvailablePanel"]
+custom_minimum_size = Vector2(130, 69)
+layout_mode = 0
+offset_left = -13.0
+offset_top = -56.0
+offset_right = 138.0
+offset_bottom = 13.0
+theme_override_fonts/font = ExtResource("21_qbg7i")
+theme_override_font_sizes/font_size = 50
+text = "Tickets"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="GPUParticles2D" type="GPUParticles2D" parent="AvailablePanel"]
 modulate = Color(1, 0.84313726, 0, 1)
 position = Vector2(60, 25)
@@ -410,6 +424,18 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Bet2" type="Label" parent="BetPanel"]
+custom_minimum_size = Vector2(130, 68)
+layout_mode = 0
+offset_top = -56.0
+offset_right = 130.0
+offset_bottom = 12.0
+theme_override_fonts/font = ExtResource("21_qbg7i")
+theme_override_font_sizes/font_size = 50
+text = "BET"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="LastWon" type="Panel" parent="."]
 custom_minimum_size = Vector2(130, 68)
 offset_left = 300.0
@@ -425,6 +451,18 @@ offset_bottom = 68.0
 theme_override_fonts/font = ExtResource("21_qbg7i")
 theme_override_font_sizes/font_size = 50
 text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LastWon3" type="Label" parent="LastWon"]
+custom_minimum_size = Vector2(130, 68)
+layout_mode = 0
+offset_top = -55.0
+offset_right = 130.0
+offset_bottom = 13.0
+theme_override_fonts/font = ExtResource("21_qbg7i")
+theme_override_font_sizes/font_size = 50
+text = "Won"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -547,10 +585,20 @@ rotation = 6.2831855
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(18.892157, 18.892157, 18.892157, 1)
 theme_override_fonts/font = ExtResource("21_qbg7i")
-text = "Wow, wygrałeś!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="OldShader" parent="." instance=ExtResource("24_4v34l")]
+anchors_preset = -1
+anchor_left = -0.63900006
+anchor_top = -0.80100006
+anchor_bottom = 1.6430001
+offset_left = -155.07996
+offset_top = -45.27997
+offset_right = 270.0
+offset_bottom = -44.960083
+mouse_filter = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
