@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://natohm0dv3ng"]
+[gd_scene load_steps=17 format=3 uid="uid://natohm0dv3ng"]
 
 [ext_resource type="PackedScene" uid="uid://x1yh7yc6vtcn" path="res://Scenes/player.tscn" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://cr38grjf305ih" path="res://Assets/mainmenu.png" id="1_n45e2"]
@@ -6,17 +6,60 @@
 [ext_resource type="PackedScene" uid="uid://chx7s8mc1u127" path="res://Scenes/game.tscn" id="5_cp0ys"]
 [ext_resource type="PackedScene" uid="uid://b65vw3mgc3gww" path="res://Scenes/options.tscn" id="6_opfnp"]
 [ext_resource type="PackedScene" uid="uid://bomsn1mjnhtxc" path="res://Scenes/credits.tscn" id="6_yhxw7"]
-[ext_resource type="PackedScene" uid="uid://bkrifrt08yicv" path="res://Scenes/optionsSign.tscn" id="7_yhxw7"]
-[ext_resource type="PackedScene" uid="uid://edcv2ujrcwra" path="res://Scenes/creditsSign.tscn" id="8_trj04"]
-[ext_resource type="PackedScene" uid="uid://c0dnlp43kt1u0" path="res://Scenes/exit.tscn" id="9_trj04"]
-[ext_resource type="PackedScene" uid="uid://c8lnm3l62hfgj" path="res://Scenes/enemy.tscn" id="10_16hvj"]
+[ext_resource type="Texture2D" uid="uid://b5nj5kf15tj02" path="res://Assets/autorzy1.png" id="7_t1dhk"]
+[ext_resource type="Texture2D" uid="uid://c7pli3poc813p" path="res://Assets/autorzy2.png" id="8_5egv6"]
+[ext_resource type="Texture2D" uid="uid://b8f146g7tca3w" path="res://Assets/opcje1.png" id="9_vtepg"]
+[ext_resource type="Texture2D" uid="uid://bniok2pnqgmfb" path="res://Assets/opcje2.png" id="10_8dnnj"]
+[ext_resource type="Texture2D" uid="uid://cvb38frheqqp" path="res://Assets/wyjście1.png" id="11_m3bi6"]
+[ext_resource type="Texture2D" uid="uid://cmly0cuoexn7y" path="res://Assets/wyjście2.png" id="12_wyh8j"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_16hvj"]
-vertices = PackedVector2Array(759.3906, 25.953125, 1296.2188, 24.039063, 1062.3203, 744.75, 853.46094, 745.52344, 1871.3125, 759.84375, 1888.3906, 878.53906, 1090.4297, 847.65625, 851.3203, 858.6719, 13.578125, 887.6328, 23.429688, 708.4297, 1058.3594, 1062.1172, 865.3281, 1064.8594)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 2), PackedInt32Array(7, 8, 9, 3), PackedInt32Array(7, 3, 2, 6, 10, 11)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(842, 735, 748, 16, 1310, 14, 1076, 735, 1880, 750, 1900, 889, 1099, 858, 1067, 1072, 856, 1075, 842, 869, 3, 898, 14, 698)])
+[sub_resource type="SpriteFrames" id="SpriteFrames_ujyyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_t1dhk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5egv6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_t1dhk"]
+a = Vector2(274.00003, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mkpwh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_vtepg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8dnnj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4nkqq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_m3bi6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wyh8j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MainMenu" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Mainmenu" type="Sprite2D" parent="."]
 z_index = -4096
@@ -25,34 +68,85 @@ texture = ExtResource("1_n45e2")
 
 [node name="player" parent="." instance=ExtResource("1_28flt")]
 position = Vector2(958, 835)
+collision_layer = 3
 
 [node name="Play" parent="." instance=ExtResource("4_opfnp")]
-position = Vector2(960, -2)
+position = Vector2(966, 358)
+scale = Vector2(7.915, 3.88)
 target_scene = ExtResource("5_cp0ys")
 
 [node name="Credits" parent="." instance=ExtResource("4_opfnp")]
-position = Vector2(1991, 867)
+position = Vector2(1988, 946)
+scale = Vector2(1, 2.98)
 target_scene = ExtResource("6_yhxw7")
 
 [node name="Exit" parent="." instance=ExtResource("4_opfnp")]
-position = Vector2(962, 1223)
+position = Vector2(969.00006, 1209)
+scale = Vector2(6.645, 1)
 exits_game = true
 
 [node name="Options" parent="." instance=ExtResource("4_opfnp")]
-position = Vector2(-73, 871)
+position = Vector2(-70, 937.00006)
+scale = Vector2(1, 2.695)
 target_scene = ExtResource("6_opfnp")
 
-[node name="AnimatedSprite2D" parent="." instance=ExtResource("7_yhxw7")]
-position = Vector2(963, 540)
+[node name="Boundaries" type="StaticBody2D" parent="."]
+visible = false
 
-[node name="AnimatedSprite2D2" parent="." instance=ExtResource("8_trj04")]
-position = Vector2(958, 543)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundaries"]
+position = Vector2(-172.39246, 124.67322)
+polygon = PackedVector2Array(2090.3926, -115.67322, 1498.3925, 158.32678, 1501.3925, 334.32678, 1636.3925, 289.32678, 1727.3925, 404.32678, 1920.3925, 384.32678, 2088.3926, 460.32678)
 
-[node name="AnimatedSprite2D3" parent="." instance=ExtResource("9_trj04")]
-position = Vector2(963, 539)
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Boundaries"]
+polygon = PackedVector2Array(1269, 1080, 1308, 1031, 1418, 990, 1621, 979, 1854, 912, 1924, 928, 1924, 1078)
 
-[node name="Enemy" parent="." instance=ExtResource("10_16hvj")]
-position = Vector2(1503, 781)
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Boundaries"]
+position = Vector2(35.513916, 28.377655)
+build_mode = 1
+polygon = PackedVector2Array(-44.513916, -147.37766, 1882.4861, -138.37766, 1882.4861, 527.6223, 2068.486, 527.6223, 2065.486, 907.6223, 1885.4861, 904.6223, 1896.4861, 1049.6223, 1247.4861, 1052.6223, 1253.4861, 1235.6223, 556.4861, 1235.6223, 573.4861, 1045.6223, -37.513916, 1055.6223, -39.513916, 905.6223, -277.51392, 912.6223, -277.51392, 483.62234, -34.513916, 486.62234)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_16hvj")
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Boundaries"]
+position = Vector2(-1432, 197)
+polygon = PackedVector2Array(2021, 93, 1430, -193, 1439, 378, 1601, 328, 1786, 342, 1865, 291, 1931, 303, 2020, 252)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Boundaries"]
+position = Vector2(-1280, 2)
+polygon = PackedVector2Array(1269, 1080, 1277, 908, 1393, 924, 1550, 969, 1798, 986, 1909, 1027, 1908, 1077)
+
+[node name="autorzy" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(1523, 678)
+scale = Vector2(0.7375297, 0.7375297)
+sprite_frames = SubResource("SpriteFrames_ujyyl")
+autoplay = "default"
+offset = Vector2(0, -49.49)
+
+[node name="Area2D" type="StaticBody2D" parent="autorzy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="autorzy/Area2D"]
+position = Vector2(-200.66986, -18.982292)
+scale = Vector2(1.3558776, 1.3558776)
+shape = SubResource("SegmentShape2D_t1dhk")
+
+[node name="opcje" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(398, 664.00006)
+scale = Vector2(0.75475055, 0.7547506)
+sprite_frames = SubResource("SpriteFrames_mkpwh")
+autoplay = "default"
+offset = Vector2(0, -44.695)
+
+[node name="Area2D" type="StaticBody2D" parent="opcje"]
+position = Vector2(1481.2842, 62.272217)
+scale = Vector2(0.97718334, 0.97718334)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="opcje/Area2D"]
+position = Vector2(-1689.4235, -77.28512)
+scale = Vector2(1.3558776, 1.3558776)
+shape = SubResource("SegmentShape2D_t1dhk")
+
+[node name="wyjście" type="AnimatedSprite2D" parent="."]
+position = Vector2(953, 1036.0001)
+scale = Vector2(0.86124694, 0.86124706)
+sprite_frames = SubResource("SpriteFrames_4nkqq")
+autoplay = "default"

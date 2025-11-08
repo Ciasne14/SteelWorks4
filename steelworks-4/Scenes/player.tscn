@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://x1yh7yc6vtcn"]
+[gd_scene load_steps=27 format=3 uid="uid://x1yh7yc6vtcn"]
 
 [ext_resource type="Script" uid="uid://bfec1gawwa52u" path="res://Scripts/character_movement.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bo218rijjy35x" path="res://Assets/animation.png" id="2_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://cf8jugm7kuvyx" path="res://Scenes/playerseeeepng.png" id="3_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://col3kiuxw2f7" path="res://EyeProjectile.tscn" id="2_vgqql"]
+[ext_resource type="Texture2D" uid="uid://bpt8sp4rbtp81" path="res://Assets/shader.PNG" id="3_6t5aa"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cvnsp"]
 load_path = "res://.godot/imported/animation.png-5d92e7d61c9e542bc14c27c1311084ca.ctex"
@@ -26,6 +27,38 @@ region = Rect2(1374, 0, 229, 422)
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1ek2"]
 atlas = ExtResource("2_cvnsp")
 region = Rect2(1603, 0, 229, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(687, 0, 229, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(2519, 0, 229, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4iuc"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(2748, 0, 229, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd4e3"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(2977, 0, 229, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqcod"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(3206, 0, 229, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igrcy"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(3435, 0, 229, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs7ks"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(3664, 0, 229, 422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6n3p"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(3893, 0, 229, 422)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
 atlas = ExtResource("2_cvnsp")
@@ -83,6 +116,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ukyrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dp3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4iuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd4e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqcod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igrcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs7ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6n3p")
+}],
+"loop": false,
+"name": &"throw",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_tx1dd")
 }, {
 "duration": 1.0,
@@ -116,29 +178,33 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3wgy"]
-size = Vector2(38, 199)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t5aa"]
+radius = 18.0
+height = 44.0
 
 [node name="player" type="CharacterBody2D"]
 collision_layer = 2
+motion_mode = 1
 script = ExtResource("1_cvnsp")
+eye_scene = ExtResource("2_vgqql")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 5
 position = Vector2(0.25, -98.5)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fkybt")
-animation = &"up"
+animation = &"throw"
 autoplay = "default"
-frame = 3
-frame_progress = 0.4937807
+frame = 7
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 5
-position = Vector2(0.25, -100)
-shape = SubResource("RectangleShape2D_x3wgy")
+position = Vector2(0, -20)
+shape = SubResource("CapsuleShape2D_6t5aa")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4836.9995, 233.99998)
-scale = Vector2(100.40065, -102.989944)
+[node name="Shader" type="Sprite2D" parent="."]
+visible = false
+z_index = 100
+position = Vector2(0, -104)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_6t5aa")

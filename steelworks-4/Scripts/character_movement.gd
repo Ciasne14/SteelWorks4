@@ -1,12 +1,22 @@
 extends CharacterBody2D
 
-const SPEED := 200.0
+const SPEED := 150.0
+@onready var shader: Sprite2D = $Shader
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var camera: Camera2D = %Camera2D2
+
+@export var eye_scene: PackedScene
+var is_throwing := false
+
+func _ready() -> void:
+	animated_sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
 
 func _physics_process(delta: float) -> void:
 	var h := Input.get_axis("left", "right")
 	var v := Input.get_axis("up", "down")
-
+	
+	if is_throwing:
+		return
 
 	if h != 0.0:
 		velocity.x = h * SPEED
@@ -33,3 +43,48 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h = false
 
 	move_and_slide()
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("throw") and not is_throwing:
+		is_throwing = true
+		animated_sprite.animation = "throw"
+		animated_sprite.play()
+		
+	if event.is_action_pressed("quit"):
+		get_tree().quit()
+
+
+func _on_animation_finished() -> void:
+		is_throwing = false
+		throw_eye()
+	
+func go_blind():
+	shader.visible = true
+	
+func throw_eye():
+	var eye = eye_scene.instantiate()
+	get_tree().current_scene.add_child(eye)
+	eye.global_position = global_position
+
+	# kierunek w stronę kursora
+	var target = get_global_mouse_position()
+	var direction = (target - global_position).normalized()
+	eye.start(direction)
+
+	# kamera śledzi oko
+	camera.reparent(eye)
+	shader.reparent(eye)
+	shader.scale = Vector2 (1.2, 1.2)
+	camera.position = Vector2.ZERO
+	camera.zoom = Vector2(0.5, 0.5)
+	camera.make_current()
+
+	# po chwili wróć do gracza
+	await get_tree().create_timer(2.0).timeout
+	camera.reparent(self)
+	shader.reparent(self)
+	shader.scale = Vector2 (0.6, 0.6)
+	shader.position = Vector2.ZERO
+	camera.position = Vector2.ZERO
+	camera.zoom = Vector2(1, 1)
+	camera.make_current()
