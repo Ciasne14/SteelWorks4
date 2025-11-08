@@ -36,7 +36,8 @@ func _spawn_balloon():
 func add_score(points: int):
 	score += points
 	if(score>349):
-		print("Wygrana")
+		get_tree().change_scene_to_file("res://Scenes/game.tscn")
+		Game.games_finished()
 	_update_ui()
 
 func lose_life():

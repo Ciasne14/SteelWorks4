@@ -55,7 +55,8 @@ func _roll_player():
 	else:
 		score=score-50
 	if(score>349):
-		print("Wygrana")
+		get_tree().change_scene_to_file("res://Scenes/game.tscn")
+		Game.games_finished()
 # Obstawienie "więcej"
 func _on_bet_more_pressed():
 	less = false

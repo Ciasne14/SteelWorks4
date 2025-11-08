@@ -43,5 +43,7 @@ func _on_hammerfall_timeout() -> void:
 	jump_ball()
 	score = score + str_value
 	if(score>349):
-		print("Wygrana")
+		Game.hammer_finished = true
+		get_tree().change_scene_to_file("res://Scenes/game.tscn")
+		Game.games_finished()
 	$RigidBody2D/PointLight2D.visible = true
