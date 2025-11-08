@@ -7,7 +7,17 @@ extends Node  # Jeśli masz Node2D jako główny węzeł
 @export var stop_delay = 0.5 # Opóźnienie przed zatrzymaniem bębna
 @export var tickets = 100
 
+@onready var camera : Camera2D = $Camera2D  # Reference to the Camera2D node
+var shake_duration : float = 0.1  # Duration of the shake
+var shake_intensity : float = 10.0  # How strong the shake will be (adjust as needed)
+var shake_timer : float = 0.0  # Timer to control shake duration
+var original_position : Vector2  # To store the camera's original position
+
+var last_won = 0
+@onready var spin_button:=$Button
+
 @export var roll_particle: PackedScene
+@export var last_particle: PackedScene
 
 var sprites : Array = []
 
@@ -20,8 +30,18 @@ var spinning = false # Czy bębny kręcą się?
 var reel_positions = [] # Pozycje bębnów
 var btn5modulate
 
+var texts: Array = ["What if I told you that genius isn't a gift, it's a
+sentence.","What happens when illusions no longer protect you?","But ask yourself, what happens to a person who sees the truth too clearly?","He saw its loneliness, its
+despair, its existential cost.","And what the genius perceives is not just beauty or truth but suffering.","Because happiness as we know it requires a certain blindness, a willingness to
+play the game, to believe the illusion.","And yet, here's the paradox.","How do you live with a mind that sees too much?","How
+do you carry a light that blinds even you?","How do you explain the architecture of
+suffering to someone who's never seen it?","How do you articulate beauty so pure that it
+hurts?"]
+
 # Funkcja inicjująca
 func _ready():
+	$Label2.text = texts[randi_range(0,texts.size()-1)]
+	original_position = camera.position
 	# Inicjalizuj bębny
 	load_sprites_from_folder(folder_path) 
 	btn5modulate = $btn5.modulate
@@ -35,15 +55,45 @@ func _ready():
 			add_child(reel)
 			reels.append(reel)
 			reel_positions.append(0)  # Początkowa pozycja bębna
+	
 
 	# Przycisk uruchamiający grę
-func _process(_delta):
-	if Input.is_action_just_pressed("add5"):
-		# Działanie po naciśnięciu spacji
-		print("Spacja naciśnięta!")
-		# Możesz tu dodać inne działania, np. zmienić kolor
-# Funkcja uruchamiająca obrót bębnów
+func _process(delta):
+	if Input.is_action_just_pressed("add5") && !$btn5.disabled:
+		_on_btn_5_pressed()
+	if Input.is_action_just_pressed("bet1") && !$btn1.disabled:
+		_on_btn_1_pressed()
+	if Input.is_action_just_pressed("bet5") && !$btn5.disabled:
+		_on_btn_5_pressed()
+	if Input.is_action_just_pressed("bet2") && !$btn2.disabled:
+		_on_btn_2_pressed()
+	if Input.is_action_just_pressed("bet10") && !$btn10.disabled:
+		_on_btn_10_pressed()
+	if Input.is_action_just_pressed("bet25") && !$btn25.disabled:
+		_on_btn_25_pressed()
+	if Input.is_action_just_pressed("spin") && spin_button.disabled == false:
+		_on_spin_pressed()
+	if shake_timer > 0:
+		shake_timer -= delta  # Decrease the shake timer
+		# Apply random shake offset
+		var shake_offset = Vector2(
+			randf_range(-shake_intensity, shake_intensity),
+			randf_range(-shake_intensity, shake_intensity)
+		)
+		camera.position = original_position + shake_offset  # Move the camera with the shake
+	else:
+		# Reset the camera to its original position after the shake is done
+		camera.position = original_position
+
+func start_shake():
+	shake_timer = shake_duration  # Reset the shake timer
+	
 func _on_spin_pressed():
+	$Label2.text = texts[randi_range(0,texts.size()-1)]
+	$Sounds/Chain.play()
+	spin_button.disabled = true
+	$Button/SpinTimer.start()
+	$Button/ResultTimer.start()
 	if spinning:
 		return
 	spinning = true
@@ -100,6 +150,7 @@ func load_sprites_from_folder(path: String):
 
 func _on_button_pressed() -> void:
 	_on_spin_pressed()
+	
 
 func updateTicketBetValue(ticketsUsed):
 	tickets = tickets - ticketsUsed
@@ -117,24 +168,30 @@ func updateButtons():
 	else:
 		$btn5.disabled = true
 		
-	if(tickets - bet*2 > 0):
+	if(tickets - bet*2 > 0 && bet > 0):
 		$btn2.disabled = false
 	else:
 		$btn2.disabled = true
 		
-	if(tickets - bet*10 > 0):
+	if(tickets - bet*10 > 0 && bet > 0):
 		$btn10.disabled = false
 	else:
 		$btn10.disabled = true
 		
-	if(tickets - bet*25 > 0):
+	if(tickets - bet*25 > 0 && bet > 0):
 		$btn25.disabled = false
 	else:
 		$btn25.disabled = true
+	if bet > 0:
+		$Button.disabled = false
+	else:
+		$Button.disabled = true
 
 func updateTicketBet():
+	start_shake()
 	updateTickets()
 	updateBet()
+	updateLastWon()
 	updateButtons()
 
 func updateTickets():
@@ -142,6 +199,9 @@ func updateTickets():
 	
 func updateBet():
 	$BetPanel/Bet.text = str(bet)
+
+func updateLastWon():
+	$LastWon/LastWon2.text = str(last_won)
 
 func _on_btn_1_pressed() -> void:
 	updateTicketBetValue(1) # Replace with function body.
@@ -163,3 +223,60 @@ func _on_btn_10_pressed() -> void:
 
 func _on_btn_25_pressed() -> void:
 	updateTicketBetValue(bet*25)
+
+
+func _on_result_timer_timeout() -> void:
+	var win = false
+	var random_win_value = randi_range(1,5)
+	if random_win_value > 2:
+		win = true
+	if tickets < 100:
+		win = true
+	if(win):
+		last_won = bet* randi_range(2,3)
+		play_win_sounds()
+		tickets = tickets + last_won
+	else:
+		play_lose_sounds()
+		last_won = 0
+	bet = 0
+	$Button.disabled = true
+	updateTicketBet()
+	if(tickets>999):
+		execute_last_order()
+
+func play_win_sounds():
+	$Sounds/AudioStreamPlayer2D.play()
+	$Sounds/AudioStreamPlayer2D.pitch_scale = (randf_range(.5,2))
+	$Sounds/AudioStreamPlayer2D2.play()
+	$Sounds/AudioStreamPlayer2D2.pitch_scale = (randf_range(.5,2))
+	$Sounds/AudioStreamPlayer2D3.play()
+	$Sounds/AudioStreamPlayer2D3.pitch_scale = (randf_range(.5,2))
+	$Sounds/AudioStreamPlayer2D4.play()
+	$Sounds/AudioStreamPlayer2D4.pitch_scale = (randf_range(.5,2))
+
+func play_lose_sounds():
+	$Sounds/Haha.play()
+	$Sounds/Haha.pitch_scale = (randf_range(.5,.8))
+	$Sounds/Haha2.play()
+	$Sounds/Haha2.pitch_scale = (randf_range(.5,.8))
+	$Sounds/Haha3.play()
+	$Sounds/Haha3.pitch_scale = (randf_range(.5,.8))
+	$Sounds/Haha4.play()
+	$Sounds/Haha4.pitch_scale = (randf_range(.5,.8))
+
+func execute_last_order():
+	var explosion = last_particle.instantiate()
+	get_tree().current_scene.add_child(explosion)
+	var explosion1 = last_particle.instantiate()
+	get_tree().current_scene.add_child(explosion1)
+	var explosion2 = last_particle.instantiate()
+	get_tree().current_scene.add_child(explosion2)
+	var explosion3 = last_particle.instantiate()
+	get_tree().current_scene.add_child(explosion3)
+	var explosion4 = last_particle.instantiate()
+	get_tree().current_scene.add_child(explosion4)
+	var explosion5 = last_particle.instantiate()
+	get_tree().current_scene.add_child(explosion5)
+	var explosion6 = last_particle.instantiate()
+	get_tree().current_scene.add_child(explosion6)

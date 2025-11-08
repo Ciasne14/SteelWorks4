@@ -1,7 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://dmvikv0mb22rk"]
+[gd_scene load_steps=21 format=3 uid="uid://dmvikv0mb22rk"]
 
 [ext_resource type="Script" uid="uid://vt46scjtgrst" path="res://slot_machine.gd" id="1_agdmm"]
-[ext_resource type="PackedScene" uid="uid://cd5gb2jidlllp" path="res://roll_particle.tscn" id="2_nmlme"]
+[ext_resource type="PackedScene" uid="uid://4hlx1wf56au4" path="res://roll_particle.tscn" id="2_nmlme"]
 [ext_resource type="PackedScene" uid="uid://x8d80h7ki5jx" path="res://shader.tscn" id="3_4tvcy"]
 [ext_resource type="Texture2D" uid="uid://bh2swlv2fs3py" path="res://Assets/arms/image1.png" id="3_842tv"]
 [ext_resource type="Texture2D" uid="uid://r857088babo4" path="res://Assets/arms/image2.png" id="4_7abct"]
@@ -18,9 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://d1yesgg46vfdf" path="res://background.mp3" id="15_fj6df"]
 [ext_resource type="AudioStream" uid="uid://dkelksoqhxgdb" path="res://chain.mp3" id="16_gdvkg"]
 [ext_resource type="AudioStream" uid="uid://bdht7kreiu4l6" path="res://haha.mp3" id="17_2vf6k"]
-[ext_resource type="PackedScene" uid="uid://c6qd0tnlmg70k" path="res://last_particle.tscn" id="19_r7rpn"]
-[ext_resource type="Texture2D" uid="uid://dr2towgkdq86a" path="res://button.png" id="20_h3lt6"]
-[ext_resource type="FontFile" uid="uid://bfu223jr6vile" path="res://October Crow.ttf" id="21_qbg7i"]
+[ext_resource type="PackedScene" uid="uid://x8gud8e3fqsp" path="res://last_particle.tscn" id="19_r7rpn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4tvcy"]
 shader = ExtResource("12_3ucdj")
@@ -39,7 +37,6 @@ shader_parameter/color_high = Color(1, 1, 1, 1)
 script = ExtResource("1_agdmm")
 symbols = [null]
 roll_particle = ExtResource("2_nmlme")
-last_particle = ExtResource("19_r7rpn")
 
 [node name="Shader" parent="." instance=ExtResource("3_4tvcy")]
 anchors_preset = -1
@@ -199,7 +196,6 @@ offset_left = 166.0
 offset_top = 600.0
 offset_right = 234.0
 offset_bottom = 668.0
-disabled = true
 text = "X 2
 "
 
@@ -209,7 +205,6 @@ offset_left = 266.0
 offset_top = 600.0
 offset_right = 334.0
 offset_bottom = 668.0
-disabled = true
 text = "X 10
 "
 
@@ -219,7 +214,6 @@ offset_left = 366.0
 offset_top = 600.0
 offset_right = 434.0
 offset_bottom = 668.0
-disabled = true
 text = "X 25
 "
 
@@ -324,35 +318,7 @@ volume_db = 15.0
 stream = ExtResource("17_2vf6k")
 volume_db = 15.0
 
-[node name="Button2" type="Sprite2D" parent="."]
-modulate = Color(0.47007585, 0.47007585, 0.47007585, 1)
-position = Vector2(-288, -60.874992)
-scale = Vector2(4.9551287, 0.63782036)
-texture = ExtResource("20_h3lt6")
-
-[node name="Button4" type="Sprite2D" parent="."]
-position = Vector2(-288, 296.5625)
-scale = Vector2(4.9551287, 9.0625)
-texture = ExtResource("20_h3lt6")
-
-[node name="Button3" type="Sprite2D" parent="."]
-modulate = Color(0.23921569, 0.2, 0.13725491, 1)
-position = Vector2(-288, 657)
-scale = Vector2(4.9551287, 0.63782036)
-texture = ExtResource("20_h3lt6")
-
-[node name="Label2" type="Label" parent="."]
-offset_left = -446.0
-offset_top = 6.0
-offset_right = -137.0
-offset_bottom = 604.0
-theme_override_fonts/font = ExtResource("21_qbg7i")
-theme_override_font_sizes/font_size = 50
-text = "The curse of seeing too much too clearly."
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-justification_flags = 162
+[node name="LastParticle" parent="." instance=ExtResource("19_r7rpn")]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Button/ResultTimer" to="." method="_on_result_timer_timeout"]
