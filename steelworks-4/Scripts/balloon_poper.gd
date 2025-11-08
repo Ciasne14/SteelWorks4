@@ -14,6 +14,7 @@ var spawn_timer := 0.0
 @onready var restart_btn := $CanvasLayer/RestartButton
 
 func _ready():
+	lives = 3
 	restart_btn.pressed.connect(_on_restart_pressed)
 	_reset_game()
 

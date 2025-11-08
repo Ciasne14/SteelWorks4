@@ -17,7 +17,7 @@ func _physics_process(delta):
 	position.y += float_speed * delta
 	if position.y < -100:
 		var game = get_tree().current_scene
-		if game.has_method("lose_life"):
+		if (game.has_method("lose_life") && sprite.animation == "default"):
 			game.lose_life()
 		queue_free()
 
