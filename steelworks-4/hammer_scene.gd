@@ -1,9 +1,10 @@
 extends Node2D
 
 var str_value = 0
-@export var exhaustion = 3
+@export var exhaustion = 5
 @export var strike = 5
 var jump_force = 15
+var score = 0
 
 
 @onready var ball : RigidBody2D = $RigidBody2D
@@ -14,16 +15,17 @@ func _ready() -> void:
 
 func _process(_delta):
 	if Input.is_action_just_pressed("hammer"):
-		str_value = str_value +strike
+		str_value = str_value + strike
 		$ProgressBar.value = str_value
 	if Input.is_action_just_pressed("strike"):
 		$AnimationPlayer.play("hammer")
 		$hammer/hammerfall.start()
-		$Label.text = str(str_value)
+		$Label.text = str(score)
 	if $RigidBody2D.linear_velocity.length() > 0:
 		$RigidBody2D/PointLight2D.visible = true
 	else:
 		$RigidBody2D/PointLight2D.visible = false
+		
 		
 func _on_expire_timer_timeout() -> void:
 	if(str_value>11):
@@ -39,4 +41,7 @@ func jump_ball():
 
 func _on_hammerfall_timeout() -> void:
 	jump_ball()
+	score = score + str_value
+	if(score>349):
+		print("Wygrana")
 	$RigidBody2D/PointLight2D.visible = true
