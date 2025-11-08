@@ -1,6 +1,73 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw2ew71grxsg"]
+[gd_scene load_steps=7 format=3 uid="uid://dw2ew71grxsg"]
 
 [ext_resource type="Script" uid="uid://b1buqschwr4d7" path="res://dice_game.gd" id="1_a4m0k"]
+[ext_resource type="Texture2D" uid="uid://urh6r1bftkom" path="res://icon.svg" id="2_onxbv"]
+
+[sub_resource type="Animation" id="Animation_j8p6f"]
+resource_name = "EvilCupRoll"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cup:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.93333334, 1.3333334, 1.5666667, 1.9666667, 2.3333333, 2.7, 2.8333333, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(705, -186), Vector2(500, 185), Vector2(612, 172), Vector2(830, 125), Vector2(676, 109), Vector2(507, 149), Vector2(720, 140), Vector2(591, 68), Vector2(608, -222)]
+}
+
+[sub_resource type="Animation" id="Animation_onxbv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cup:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(705, -186)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerCup:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(598, 1325)]
+}
+
+[sub_resource type="Animation" id="Animation_yqda1"]
+resource_name = "PlayerCupRoll"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCup:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.96666664, 1.2333333, 1.6333333, 2.0333333, 2.4666667, 2.7333333, 2.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(598, 1325), Vector2(415, 873), Vector2(815, 872.99994), Vector2(539, 831.99994), Vector2(853, 839), Vector2(428, 838.99994), Vector2(939, 863), Vector2(680, 811), Vector2(666, 1305)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yqda1"]
+_data = {
+&"EvilCupRoll": SubResource("Animation_j8p6f"),
+&"PlayerCupRoll": SubResource("Animation_yqda1"),
+&"RESET": SubResource("Animation_onxbv")
+}
 
 [node name="DiceGame" type="Node2D"]
 script = ExtResource("1_a4m0k")
@@ -22,16 +89,16 @@ offset_bottom = 509.0
 [node name="DicePlayer" type="Node2D" parent="."]
 
 [node name="EvilDie1" type="Sprite2D" parent="DicePlayer"]
-position = Vector2(347, 73)
+position = Vector2(518, 100)
 
 [node name="EvilDie2" type="Sprite2D" parent="DicePlayer"]
-position = Vector2(727, 86)
+position = Vector2(666, 119)
 
 [node name="PlayerDie1" type="Sprite2D" parent="DicePlayer"]
-position = Vector2(677, 403)
+position = Vector2(746, 883)
 
 [node name="PlayerDie2" type="Sprite2D" parent="DicePlayer"]
-position = Vector2(414, 391)
+position = Vector2(614, 878)
 
 [node name="DiceButton" type="Button" parent="DicePlayer"]
 offset_left = 510.0
@@ -63,3 +130,29 @@ offset_bottom = 23.0
 [node name="Restart" type="Button" parent="CanvasLayer"]
 offset_right = 8.0
 offset_bottom = 8.0
+
+[node name="Cup" type="Sprite2D" parent="."]
+position = Vector2(705, -186)
+scale = Vector2(2.0078125, 2.859375)
+texture = ExtResource("2_onxbv")
+
+[node name="EvilCupTimer" type="Timer" parent="Cup"]
+wait_time = 3.0
+one_shot = true
+
+[node name="PlayerCup" type="Sprite2D" parent="."]
+position = Vector2(598, 1325)
+scale = Vector2(2.0078125, 2.859375)
+texture = ExtResource("2_onxbv")
+
+[node name="PlayerCupTimer" type="Timer" parent="PlayerCup"]
+wait_time = 3.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_yqda1")
+}
+
+[connection signal="timeout" from="Cup/EvilCupTimer" to="." method="_on_evil_cup_timer_timeout"]
+[connection signal="timeout" from="PlayerCup/PlayerCupTimer" to="." method="_on_player_cup_timer_timeout"]
