@@ -20,7 +20,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("strike"):
 		$AnimationPlayer.play("hammer")
 		$hammer/hammerfall.start()
-		$Label.text = str(score)
+		
 	if $RigidBody2D.linear_velocity.length() > 0:
 		$RigidBody2D/PointLight2D.visible = true
 	else:
@@ -42,6 +42,9 @@ func jump_ball():
 func _on_hammerfall_timeout() -> void:
 	jump_ball()
 	score = score + str_value
+	$Label.text = str(score)
+	str_value=0
+	
 	if(score>349):
 		Game.hammer_finished = true
 		get_tree().change_scene_to_file("res://Scenes/game.tscn")

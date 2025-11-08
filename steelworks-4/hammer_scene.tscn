@@ -160,5 +160,15 @@ one_shot = true
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="Label2" type="Label" parent="."]
+offset_left = 1526.0
+offset_top = 167.0
+offset_right = 1851.0
+offset_bottom = 769.0
+text = "Wciskaj SPACJĘ, aby ładować siłę uderzenia motem. Naciśnij ENTER aby wykonać uderzenie. Od siły uderzenia zależy ile punktów dostaniesz, po osiągnieciu 350, zaliczysz ten poziom."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [connection signal="timeout" from="ProgressBar/ExpireTimer" to="." method="_on_expire_timer_timeout"]
 [connection signal="timeout" from="hammer/hammerfall" to="." method="_on_hammerfall_timeout"]

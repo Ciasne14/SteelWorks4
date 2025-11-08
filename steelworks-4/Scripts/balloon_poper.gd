@@ -2,19 +2,18 @@ extends Node2D
 
 @export var balloon_scene: PackedScene
 @export var spawn_interval := 1.2
-@export var max_lives := 3
+#@export var max_lives := 3
 
 var score := 0
-var lives := 3
+#var lives := 3
 var spawn_timer := 0.0
 
 @onready var score_label := $CanvasLayer/ScoreLabel
-@onready var lives_label := $CanvasLayer/LivesLabel
 @onready var balloons_root := $Balloons
 @onready var restart_btn := $CanvasLayer/RestartButton
 
 func _ready():
-	lives = 3
+	#lives = 3
 	restart_btn.pressed.connect(_on_restart_pressed)
 	_reset_game()
 
@@ -41,18 +40,18 @@ func add_score(points: int):
 	_update_ui()
 
 func lose_life():
-	lives -= 1
+	#lives -= 1
 	_update_ui()
-	if lives <= 0:
-		_game_over()
+	#if lives <= 0:
+		#_game_over()
 
 func _update_ui():
 	score_label.text = "Wynik: %d" % score
-	lives_label.text = "Życia: %d" % lives
+	#lives_label.text = "Życia: %d" % lives
 
 func _reset_game():
 	score = 0
-	lives = max_lives
+	#lives = max_lives
 	_update_ui()
 	for child in balloons_root.get_children():
 		child.queue_free()
