@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=3 uid="uid://b65vw3mgc3gww"]
+
+[ext_resource type="PackedScene" uid="uid://3cw2pi4d5jnf" path="res://Scenes/back_to_menu.tscn" id="1_5v8ap"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 1918.3425
+offset_bottom = 1080.0
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Button" parent="VBoxContainer" instance=ExtResource("1_5v8ap")]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+
+[node name="mainvolume" type="HSlider" parent="VBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+max_value = 1.0
+step = 0.001
+
+[node name="Label" type="Label" parent="VBoxContainer/mainvolume"]
+custom_minimum_size = Vector2(350, 55)
+layout_mode = 0
+offset_top = -50.0
+offset_right = 350.0
+offset_bottom = 5.0
+theme_override_font_sizes/font_size = 40
+text = "Main Volume"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="sfxvolume" type="HSlider" parent="VBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+max_value = 1.0
+step = 0.001
+
+[node name="Label" type="Label" parent="VBoxContainer/sfxvolume"]
+custom_minimum_size = Vector2(350, 55)
+layout_mode = 0
+offset_top = -50.0
+offset_right = 350.0
+offset_bottom = 5.0
+theme_override_font_sizes/font_size = 40
+text = "SFX Volume"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="musicvolume" type="HSlider" parent="VBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+max_value = 1.0
+step = 0.001
+
+[node name="Label" type="Label" parent="VBoxContainer/musicvolume"]
+custom_minimum_size = Vector2(350, 55)
+layout_mode = 0
+offset_top = -50.0
+offset_right = 350.0
+offset_bottom = 5.0
+theme_override_font_sizes/font_size = 40
+text = "Music Volume"
+horizontal_alignment = 1
+vertical_alignment = 2

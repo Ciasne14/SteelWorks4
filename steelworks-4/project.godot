@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Steelworks 4"
-run/main_scene="uid://chx7s8mc1u127"
+run/main_scene="uid://bckybmk626j10"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [input]
 

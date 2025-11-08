@@ -1,52 +1,69 @@
-[gd_scene load_steps=6 format=3 uid="uid://bckybmk626j10"]
+[gd_scene load_steps=7 format=3 uid="uid://bckybmk626j10"]
 
 [ext_resource type="PackedScene" uid="uid://x1yh7yc6vtcn" path="res://Scenes/player.tscn" id="1_28flt"]
-[ext_resource type="PackedScene" uid="uid://xwu2m8hbc2r3" path="res://Scenes/gameEntrance.tscn" id="2_48xlc"]
-[ext_resource type="Script" uid="uid://bn4a0up8j650k" path="res://Scripts/gameEntrance.gd" id="3_1ehe0"]
-[ext_resource type="PackedScene" uid="uid://82itjatublao" path="res://Scenes/gameExit.tscn" id="4_ce3w2"]
-[ext_resource type="Script" uid="uid://cv4d4a1td85hf" path="res://Scripts/gameExit.gd" id="5_n45e2"]
+[ext_resource type="Texture2D" uid="uid://cr38grjf305ih" path="res://Assets/mainmenu.png" id="1_n45e2"]
+[ext_resource type="PackedScene" uid="uid://yvo3da4iw4py" path="res://Scenes/transition.tscn" id="4_opfnp"]
+[ext_resource type="PackedScene" uid="uid://chx7s8mc1u127" path="res://Scenes/game.tscn" id="5_cp0ys"]
+[ext_resource type="PackedScene" uid="uid://b65vw3mgc3gww" path="res://Scenes/options.tscn" id="6_opfnp"]
+[ext_resource type="PackedScene" uid="uid://bomsn1mjnhtxc" path="res://Scenes/credits.tscn" id="6_yhxw7"]
 
 [node name="MainMenu" type="Node2D"]
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 55.0
-offset_top = 381.0
-offset_right = 286.0
-offset_bottom = 423.0
-theme_override_font_sizes/font_size = 30
-text = "Options"
-
-[node name="Label4" type="Label" parent="."]
-offset_left = 994.0
-offset_top = 357.0
-offset_right = 1225.0
-offset_bottom = 399.0
-theme_override_font_sizes/font_size = 30
-text = "Credits"
+[node name="Mainmenu" type="Sprite2D" parent="."]
+z_index = -4096
+position = Vector2(960, 540)
+texture = ExtResource("1_n45e2")
 
 [node name="player" parent="." instance=ExtResource("1_28flt")]
-position = Vector2(574, 430)
+position = Vector2(958, 759)
 
-[node name="Entrance" parent="." instance=ExtResource("2_48xlc")]
-position = Vector2(574, 186)
-script = ExtResource("3_1ehe0")
+[node name="Play" parent="." instance=ExtResource("4_opfnp")]
+position = Vector2(945, 346)
+target_scene = ExtResource("5_cp0ys")
 
-[node name="Label" type="Label" parent="Entrance"]
-offset_left = -103.0
-offset_top = 13.0
-offset_right = 128.0
-offset_bottom = 55.0
+[node name="Label4" type="Label" parent="Play"]
+offset_left = -113.0
+offset_top = 5.0
+offset_right = 118.0
+offset_bottom = 47.0
 theme_override_font_sizes/font_size = 30
 text = "Enter the Circus"
+metadata/_edit_use_anchors_ = true
 
-[node name="Exit" parent="." instance=ExtResource("4_ce3w2")]
-position = Vector2(582, 707)
-script = ExtResource("5_n45e2")
+[node name="Credits" parent="." instance=ExtResource("4_opfnp")]
+position = Vector2(1520, 679)
+target_scene = ExtResource("6_yhxw7")
+
+[node name="Label4" type="Label" parent="Credits"]
+offset_left = -51.0
+offset_top = -1.0
+offset_right = 180.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 30
+text = "Credits"
+metadata/_edit_use_anchors_ = true
+
+[node name="Exit" parent="." instance=ExtResource("4_opfnp")]
+position = Vector2(939, 1055)
+exits_game = true
 
 [node name="Label3" type="Label" parent="Exit"]
-offset_left = -30.0
-offset_top = -189.0
-offset_right = 201.0
-offset_bottom = -147.0
+offset_left = -31.0
+offset_top = -178.0
+offset_right = 200.0
+offset_bottom = -136.0
 theme_override_font_sizes/font_size = 30
 text = "Exit"
+metadata/_edit_use_anchors_ = true
+
+[node name="Options" parent="." instance=ExtResource("4_opfnp")]
+position = Vector2(386, 677)
+target_scene = ExtResource("6_opfnp")
+
+[node name="Label2" type="Label" parent="Options"]
+offset_left = -58.0
+offset_top = 1.0
+offset_right = 173.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 30
+text = "Options"
