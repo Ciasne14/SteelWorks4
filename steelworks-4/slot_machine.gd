@@ -38,6 +38,9 @@ do you carry a light that blinds even you?","How do you explain the architecture
 suffering to someone who's never seen it?","How do you articulate beauty so pure that it
 hurts?"]
 
+var info_texts: Array = ["You just won my heart!","Looks like you hit the jackpot, baby!","Well, well, aren't you the lucky one?","Guess who’s on fire? You are!", "Congrats, you’ve got the winning touch!", "I think you just unlocked a whole new level of awesome.","I knew you had it in you – and I like it!", "Hot stuff! You’re on a winning streak!", "You’ve got the magic, now let's see what else you can do!", "Is there anything you can’t win? Because I’m impressed!"]
+
+var lose_info_texts: Array =["Looks like luck’s not on your side today, but you’re still a winner in my book!", "Well, you can’t win them all, but you still look pretty amazing!", "You didn’t win this time, but I’m still hooked on you!", "Don’t worry, even losers like you are charming!", "You didn’t hit the jackpot, but you definitely got my attention!", "Not this time, but don’t worry, I’ve got plenty of games to play!", "You may have lost the game, but you won my heart – again!", "You’re not a winner this time, but you’re definitely a heartbreaker!", "Well, you didn’t win, but at least you look good doing it!", "You may have lost the round, but you’ve still got me cheering for you!"]
 # Funkcja inicjująca
 func _ready():
 	$Label2.text = texts[randi_range(0,texts.size()-1)]
@@ -228,21 +231,29 @@ func _on_btn_25_pressed() -> void:
 func _on_result_timer_timeout() -> void:
 	var win = false
 	var random_win_value = randi_range(1,5)
-	if random_win_value > 2:
+	if random_win_value > 3:
 		win = true
 	if tickets < 100:
 		win = true
 	if(win):
 		last_won = bet* randi_range(2,3)
 		play_win_sounds()
+		$Control/Info.text = info_texts[randi_range(1, info_texts.size()-1)]
 		tickets = tickets + last_won
+		$AvailablePanel/GPUParticles2D.emitting= true
+		$LastWon/GPUParticles2D.emitting= true
 	else:
 		play_lose_sounds()
+		$Control/Info.text = lose_info_texts[randi_range(1, lose_info_texts.size()-1)]
 		last_won = 0
+		
 	bet = 0
+	start_info_anim()
 	$Button.disabled = true
 	updateTicketBet()
 	if(tickets>999):
+		$VideoStreamPlayer.visible = true
+		$VideoStreamPlayer.play()
 		$LastOrderTimer.start()
 
 func play_win_sounds():
@@ -284,3 +295,10 @@ func execute_last_order():
 
 func _on_last_order_timer_timeout() -> void:
 	execute_last_order()
+	
+func start_info_anim():
+	$AnimationPlayer.play("PlayAnim")
+	$AnimationPlayer/AnimCont.start()
+
+func _on_anim_cont_timeout() -> void:
+	$AnimationPlayer.play("PlayIdle")

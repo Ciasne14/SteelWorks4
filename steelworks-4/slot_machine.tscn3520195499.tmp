@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dmvikv0mb22rk"]
+[gd_scene load_steps=28 format=3 uid="uid://dmvikv0mb22rk"]
 
 [ext_resource type="Script" uid="uid://vt46scjtgrst" path="res://slot_machine.gd" id="1_agdmm"]
 [ext_resource type="PackedScene" uid="uid://cd5gb2jidlllp" path="res://roll_particle.tscn" id="2_nmlme"]
@@ -17,7 +17,6 @@
 [ext_resource type="AudioStream" uid="uid://c2mjx4yfvqyau" path="res://woo.mp3" id="14_wxo0u"]
 [ext_resource type="AudioStream" uid="uid://d1yesgg46vfdf" path="res://background.mp3" id="15_fj6df"]
 [ext_resource type="AudioStream" uid="uid://dkelksoqhxgdb" path="res://chain.mp3" id="16_gdvkg"]
-[ext_resource type="Texture2D" uid="uid://w3kjaylkvvuf" path="res://smooth_circle.png" id="16_mcdas"]
 [ext_resource type="AudioStream" uid="uid://bdht7kreiu4l6" path="res://haha.mp3" id="17_2vf6k"]
 [ext_resource type="PackedScene" uid="uid://c6qd0tnlmg70k" path="res://last_particle.tscn" id="19_r7rpn"]
 [ext_resource type="Texture2D" uid="uid://dr2towgkdq86a" path="res://button.png" id="20_h3lt6"]
@@ -36,15 +35,6 @@ shader_parameter/color_mid_threshold = 0.48
 shader_parameter/color_low = Color(0.01, 0.41, 0.51, 1)
 shader_parameter/color_mid = Color(0.5, 0.1, 0.3, 1)
 shader_parameter/color_high = Color(1, 1, 1, 1)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4v34l"]
-particle_flag_disable_z = true
-velocity_pivot = Vector3(0, 50, 0)
-direction = Vector3(1, 60, 0)
-spread = 180.0
-initial_velocity_min = 5.0
-initial_velocity_max = 50.0
-gravity = Vector3(0, 98, 0)
 
 [sub_resource type="Animation" id="Animation_vgm0d"]
 resource_name = "PlayAnim"
@@ -349,6 +339,10 @@ disabled = true
 text = "X 25
 "
 
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="Camera2D" type="Camera2D" parent="."]
 material = SubResource("ShaderMaterial_4tvcy")
 position = Vector2(200, 300)
@@ -369,14 +363,6 @@ offset_bottom = 69.0
 text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="AvailablePanel"]
-modulate = Color(1, 0.84313726, 0, 1)
-position = Vector2(60, 25)
-emitting = false
-texture = ExtResource("16_mcdas")
-one_shot = true
-process_material = SubResource("ParticleProcessMaterial_4v34l")
 
 [node name="BetPanel" type="Panel" parent="."]
 custom_minimum_size = Vector2(130, 68)
@@ -409,14 +395,6 @@ offset_bottom = 68.0
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="LastWon"]
-modulate = Color(1, 0.84313726, 0, 1)
-position = Vector2(60, 25)
-emitting = false
-texture = ExtResource("16_mcdas")
-one_shot = true
-process_material = SubResource("ParticleProcessMaterial_4v34l")
 
 [node name="Sounds" type="Node2D" parent="."]
 
@@ -509,7 +487,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = 877.0
 offset_top = 185.0
-offset_right = 917.0
+offset_right = 916.99994
 offset_bottom = 225.00049
 
 [node name="Info" type="Label" parent="Control"]
