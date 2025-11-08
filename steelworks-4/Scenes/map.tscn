@@ -15,15 +15,15 @@ scale = Vector2(15.007813, 8.5234375)
 texture = ExtResource("1_26yhd")
 
 [node name="transition" parent="." instance=ExtResource("2_p3ir5")]
-position = Vector2(641, 613)
+position = Vector2(-598, 911)
 target_scene = ExtResource("3_myvm1")
 
 [node name="transition2" parent="." instance=ExtResource("2_p3ir5")]
-position = Vector2(828, 250)
+position = Vector2(-566, 274)
 target_scene = ExtResource("4_myvm1")
 
 [node name="transition3" parent="." instance=ExtResource("2_p3ir5")]
-position = Vector2(1605, 638)
+position = Vector2(-600, 638)
 target_scene = ExtResource("5_q0mm3")
 
 [node name="Mapa" type="Sprite2D" parent="."]
