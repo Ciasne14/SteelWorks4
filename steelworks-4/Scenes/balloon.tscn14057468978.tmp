@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dymlyg24lxm8k"]
+[gd_scene load_steps=6 format=3 uid="uid://dymlyg24lxm8k"]
 
 [ext_resource type="Script" uid="uid://b5p6a1muqfpl4" path="res://Scripts/balloon.gd" id="1_r345k"]
 [ext_resource type="Texture2D" uid="uid://gh3refyjkh5r" path="res://Scenes/balon.png" id="2_4wcav"]
 [ext_resource type="Texture2D" uid="uid://ds30drwh8rb54" path="res://Scenes/balon2.png" id="2_os1p0"]
-[ext_resource type="Texture2D" uid="uid://dj4xkcpmokidu" path="res://Scenes/evilbalon2.png" id="4_nrerx"]
-[ext_resource type="Texture2D" uid="uid://du1tg1nwnt8c2" path="res://Scenes/evilBalon.png" id="5_kbj1d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mv2x6"]
 radius = 87.02299
@@ -21,17 +19,6 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_nrerx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_kbj1d")
-}],
-"loop": true,
-"name": &"evilbalon",
-"speed": 5.0
 }]
 
 [node name="Balloon" type="Area2D"]
@@ -42,5 +29,3 @@ shape = SubResource("CircleShape2D_mv2x6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_os1p0")
-animation = &"evilbalon"
-frame_progress = 0.04910351

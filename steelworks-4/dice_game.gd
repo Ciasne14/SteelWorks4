@@ -60,17 +60,19 @@ func _roll_player():
 # Obstawienie "więcej"
 func _on_bet_more_pressed():
 	less = false
-	_roll_player()
+	$AnimationPlayer.play("PlayerCupRoll")
+	$PlayerCup/PlayerCupTimer.start()
 
 # Obstawienie "mniej"
 func _on_bet_less_pressed():
 	less = true
-	_roll_player()
+	$AnimationPlayer.play("PlayerCupRoll")
+	$PlayerCup/PlayerCupTimer.start()
 
 # Rzut kośćmi
 func _on_roll_pressed():
-	_roll_table()
-
+	$AnimationPlayer.play("EvilCupRoll")
+	$Cup/EvilCupTimer.start()
 # Zaktualizowanie wyniku
 
 # Restart gry
@@ -80,3 +82,11 @@ func _on_restart_pressed():
 func _reset_game():
 	score = 0
 	result_label.text = "Wynik na stole: 0"
+
+
+func _on_evil_cup_timer_timeout() -> void:
+	_roll_table()
+
+
+func _on_player_cup_timer_timeout() -> void:
+	_roll_player()

@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcob846knokn7"]
+
+[ext_resource type="Shader" path="res://slot_machine.gdshader" id="1_s3gco"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qwwtv"]
+shader = ExtResource("1_s3gco")
+shader_parameter/speed = 0.1
+shader_parameter/pixelation = 8.0
+shader_parameter/zoom = 2.0
+shader_parameter/gradient_pixelation = 0.2
+shader_parameter/background_threshold = 0.0
+shader_parameter/color_low_threshold = 0.24
+shader_parameter/color_mid_threshold = 0.48
+shader_parameter/color_low = Color(0.01, 0.41, 0.51, 1)
+shader_parameter/color_mid = Color(0.5, 0.1, 0.3, 1)
+shader_parameter/color_high = Color(1, 1, 1, 1)
+
+[node name="Shader" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -354.0
+offset_top = -223.0
+offset_right = 316.0
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_qwwtv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

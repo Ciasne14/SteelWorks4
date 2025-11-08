@@ -2,20 +2,22 @@ extends Area2D
 
 @export var float_speed := -80.0
 @export var pop_score := 10
+@onready var sprite = $AnimatedSprite2D
 
 func _ready():
 	if(randi_range(1,5) > 2):
-		$Sprite2D.texture = load("res://Scenes/balon.png")
+		sprite.animation = "default"
 	else:
-		$Sprite2D.texture = load("res://Scenes/evilBalon.png")
+		sprite.animation = "evilbalon"
 		pop_score = -10
-	$Sprite2D.modulate = Color(randf_range(.23,.42), randf_range(.23,.42), randf_range(.23,.42))
+	sprite.play()
+	sprite.modulate = Color(randf_range(.23,.42), randf_range(.23,.42), randf_range(.23,.42))
 
 func _physics_process(delta):
 	position.y += float_speed * delta
 	if position.y < -100:
 		var game = get_tree().current_scene
-		if game.has_method("lose_life"):
+		if (game.has_method("lose_life") && sprite.animation == "default"):
 			game.lose_life()
 		queue_free()
 
