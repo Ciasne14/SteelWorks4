@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmvikv0mb22rk"]
 
 [ext_resource type="Script" uid="uid://vt46scjtgrst" path="res://slot_machine.gd" id="1_agdmm"]
-[ext_resource type="PackedScene" uid="uid://cd5gb2jidlllp" path="res://roll_particle.tscn" id="2_nmlme"]
+[ext_resource type="PackedScene" uid="uid://4hlx1wf56au4" path="res://roll_particle.tscn" id="2_nmlme"]
 
 [node name="slot_machine" type="Node"]
 script = ExtResource("1_agdmm")
