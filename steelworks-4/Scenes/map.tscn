@@ -14,7 +14,7 @@ scale = Vector2(15.007813, 8.5234375)
 texture = ExtResource("1_26yhd")
 
 [node name="transition" parent="." instance=ExtResource("2_p3ir5")]
-position = Vector2(169, 634)
+position = Vector2(641, 613)
 target_scene = ExtResource("3_myvm1")
 
 [node name="transition2" parent="." instance=ExtResource("2_p3ir5")]
