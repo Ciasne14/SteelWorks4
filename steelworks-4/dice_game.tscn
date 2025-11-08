@@ -208,12 +208,6 @@ position = Vector2(957, 601)
 scale = Vector2(1, 1.1462964)
 texture = ExtResource("2_j8p6f")
 
-[node name="GameResult" type="Label" parent="."]
-offset_left = 860.0
-offset_top = 941.0
-offset_right = 900.0
-offset_bottom = 964.0
-
 [node name="DicePlayer" type="Node2D" parent="."]
 
 [node name="EvilDie1" type="AnimatedSprite2D" parent="DicePlayer"]
@@ -250,7 +244,7 @@ text = "Roll"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/DiceButton"]
 position = Vector2(95, 39)
 sprite_frames = SubResource("SpriteFrames_gn3yh")
-frame_progress = 0.44465595
+frame_progress = 0.106860824
 
 [node name="BetLower" type="Button" parent="DicePlayer"]
 offset_left = 244.0
@@ -262,7 +256,7 @@ text = "Lower"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/BetLower"]
 position = Vector2(108, 30)
 sprite_frames = SubResource("SpriteFrames_uc315")
-frame_progress = 0.8289203
+frame_progress = 0.49112415
 
 [node name="BetHigher" type="Button" parent="DicePlayer"]
 offset_left = 1425.0
@@ -274,7 +268,7 @@ text = "Higher"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/BetHigher"]
 position = Vector2(106, 43)
 sprite_frames = SubResource("SpriteFrames_ibi2q")
-frame_progress = 0.9706008
+frame_progress = 0.6328021
 
 [node name="Cup" type="Sprite2D" parent="."]
 position = Vector2(705, -186)

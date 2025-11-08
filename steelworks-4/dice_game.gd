@@ -45,16 +45,17 @@ func _roll_player():
 	player_roll = player_roll_1 + player_roll_2  # Suma dwóch kości od 2 do 12
 	
 	if(less && player_roll < roll_result):
-		$GameResult.text = "Gratuluję! " +str(player_roll)+ " to MNIEJ niż moje " +str(roll_result)
+		score=score+350
 	elif(less && player_roll > roll_result):
-		$GameResult.text = "Niestety! " +str(player_roll)+ " to WIĘCEJ niż moje " +str(roll_result)
+		score=score-50
 	elif(!less && player_roll < roll_result):
-		$GameResult.text = "Niestety! " +str(player_roll)+ " to MNIEJ niż moje " +str(roll_result)
+		score=score-50
 	elif(!less && player_roll > roll_result):
-		$GameResult.text = "Gratuluję! " +str(player_roll)+ " to WIĘCEJ niż moje " +str(roll_result)
+		score=score+350
 	else:
-		$GameResult.text = "REMIS GŁUPCZE!"
-
+		score=score-50
+	if(score>349):
+		print("Wygrana")
 # Obstawienie "więcej"
 func _on_bet_more_pressed():
 	less = false
