@@ -1,15 +1,96 @@
-[gd_scene load_steps=18 format=3 uid="uid://dw2ew71grxsg"]
+[gd_scene load_steps=31 format=3 uid="uid://dw2ew71grxsg"]
 
 [ext_resource type="Script" uid="uid://b1buqschwr4d7" path="res://dice_game.gd" id="1_a4m0k"]
 [ext_resource type="Texture2D" uid="uid://cxtjlg14oe6wj" path="res://diebackground.png" id="2_j8p6f"]
 [ext_resource type="Texture2D" uid="uid://h7merehgtskf" path="res://wiecej1.png" id="3_cjklt"]
+[ext_resource type="Texture2D" uid="uid://cbvns3wqjkmtv" path="res://die11.png" id="3_gs3rd"]
 [ext_resource type="Texture2D" uid="uid://oj0mp3yk1ktp" path="res://mniej1.png" id="3_ibi2q"]
 [ext_resource type="Texture2D" uid="uid://bv8koqiet782q" path="res://roll1.png" id="3_uc315"]
 [ext_resource type="Texture2D" uid="uid://cmvm2xq67l6rl" path="res://cup1.png" id="3_yqda1"]
 [ext_resource type="Texture2D" uid="uid://dw8vv7jk41n7e" path="res://mniej2.png" id="4_51wdj"]
 [ext_resource type="Texture2D" uid="uid://dg3oiuquhy5sm" path="res://wiecej2.png" id="4_bfsj0"]
 [ext_resource type="Texture2D" uid="uid://mmf8ueq12cn" path="res://roll2.png" id="4_e26n0"]
+[ext_resource type="Texture2D" uid="uid://c4ukr5qkt2igj" path="res://die12.png" id="4_f8jh3"]
 [ext_resource type="Texture2D" uid="uid://dv4mkl3gdrvb6" path="res://cup2.png" id="4_vdsmb"]
+[ext_resource type="Texture2D" uid="uid://dehuorwjqy8p" path="res://die21.png" id="5_sx3wn"]
+[ext_resource type="Texture2D" uid="uid://c143suce13853" path="res://die22.png" id="6_nh1ws"]
+[ext_resource type="Texture2D" uid="uid://uiyq87guwtjk" path="res://die31.png" id="7_p4hfl"]
+[ext_resource type="Texture2D" uid="uid://bdmgi345taodq" path="res://die33.png" id="8_c6k7n"]
+[ext_resource type="Texture2D" uid="uid://cv7cudvibywge" path="res://die41.png" id="9_rwon1"]
+[ext_resource type="Texture2D" uid="uid://cmbtqm0q03pqe" path="res://die42.png" id="10_ahemf"]
+[ext_resource type="Texture2D" uid="uid://delw306d1iatf" path="res://die51.png" id="11_15nrr"]
+[ext_resource type="Texture2D" uid="uid://dc07bd203m1k6" path="res://die52.png" id="12_6g5rx"]
+[ext_resource type="Texture2D" uid="uid://cai0pr33xf13l" path="res://die61.png" id="13_mjo45"]
+[ext_resource type="Texture2D" uid="uid://bvnkvhfud8jdg" path="res://die62.png" id="14_sswp6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_knqkg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gs3rd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f8jh3")
+}],
+"loop": true,
+"name": &"die1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_sx3wn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nh1ws")
+}],
+"loop": true,
+"name": &"die2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_p4hfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_c6k7n")
+}],
+"loop": true,
+"name": &"die3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_rwon1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ahemf")
+}],
+"loop": true,
+"name": &"die4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_15nrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6g5rx")
+}],
+"loop": true,
+"name": &"die5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_mjo45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_sswp6")
+}],
+"loop": true,
+"name": &"die6",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gn3yh"]
 animations = [{
@@ -135,21 +216,29 @@ offset_bottom = 964.0
 
 [node name="DicePlayer" type="Node2D" parent="."]
 
-[node name="EvilDie1" type="Sprite2D" parent="DicePlayer"]
+[node name="EvilDie1" type="AnimatedSprite2D" parent="DicePlayer"]
 visible = false
 position = Vector2(829, 266)
+sprite_frames = SubResource("SpriteFrames_knqkg")
+animation = &"die1"
 
-[node name="EvilDie2" type="Sprite2D" parent="DicePlayer"]
+[node name="EvilDie2" type="AnimatedSprite2D" parent="DicePlayer"]
 visible = false
 position = Vector2(977, 285)
+sprite_frames = SubResource("SpriteFrames_knqkg")
+animation = &"die1"
 
-[node name="PlayerDie1" type="Sprite2D" parent="DicePlayer"]
+[node name="PlayerDie1" type="AnimatedSprite2D" parent="DicePlayer"]
 visible = false
 position = Vector2(943, 883)
+sprite_frames = SubResource("SpriteFrames_knqkg")
+animation = &"die1"
 
-[node name="PlayerDie2" type="Sprite2D" parent="DicePlayer"]
+[node name="PlayerDie2" type="AnimatedSprite2D" parent="DicePlayer"]
 visible = false
 position = Vector2(811, 878)
+sprite_frames = SubResource("SpriteFrames_knqkg")
+animation = &"die1"
 
 [node name="DiceButton" type="Button" parent="DicePlayer"]
 offset_left = 820.0
@@ -161,7 +250,7 @@ text = "Roll"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/DiceButton"]
 position = Vector2(95, 39)
 sprite_frames = SubResource("SpriteFrames_gn3yh")
-frame_progress = 0.93729347
+frame_progress = 0.44465595
 
 [node name="BetLower" type="Button" parent="DicePlayer"]
 offset_left = 244.0
@@ -173,7 +262,7 @@ text = "Lower"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/BetLower"]
 position = Vector2(108, 30)
 sprite_frames = SubResource("SpriteFrames_uc315")
-frame_progress = 0.32155946
+frame_progress = 0.8289203
 
 [node name="BetHigher" type="Button" parent="DicePlayer"]
 offset_left = 1425.0
@@ -185,7 +274,7 @@ text = "Higher"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/BetHigher"]
 position = Vector2(106, 43)
 sprite_frames = SubResource("SpriteFrames_ibi2q")
-frame_progress = 0.46323824
+frame_progress = 0.9706008
 
 [node name="Cup" type="Sprite2D" parent="."]
 position = Vector2(705, -186)

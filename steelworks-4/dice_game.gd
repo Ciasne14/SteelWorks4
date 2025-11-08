@@ -31,8 +31,8 @@ func _roll_table():
 	var evil_roll_1 = randi_range(1,6)
 	var evil_roll_2 = randi_range(1,6)
 	
-	$DicePlayer/EvilDie1.texture = load("res://Assets/Dice/dieRed"+str(evil_roll_1)+".png")
-	$DicePlayer/EvilDie2.texture = load("res://Assets/Dice/dieRed"+str(evil_roll_2)+".png")
+	$DicePlayer/EvilDie1.play("die"+str(evil_roll_1))
+	$DicePlayer/EvilDie2.play("die"+str(evil_roll_2))
 	roll_result = evil_roll_1 + evil_roll_2  # Suma dwóch kości od 2 do 12
 
 # Generowanie wyniku gracza
@@ -40,8 +40,8 @@ func _roll_player():
 	var player_roll_1 = randi_range(1,6)
 	var player_roll_2 = randi_range(1,6)
 	
-	$DicePlayer/PlayerDie1.texture = load("res://Assets/Dice/dieWhite"+str(player_roll_1)+".png")
-	$DicePlayer/PlayerDie2.texture = load("res://Assets/Dice/dieWhite"+str(player_roll_2)+".png")
+	$DicePlayer/PlayerDie1.play("die"+str(player_roll_1))
+	$DicePlayer/PlayerDie2.play("die"+str(player_roll_2))
 	player_roll = player_roll_1 + player_roll_2  # Suma dwóch kości od 2 do 12
 	
 	if(less && player_roll < roll_result):
