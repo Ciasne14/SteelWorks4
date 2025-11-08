@@ -161,7 +161,7 @@ text = "Roll"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/DiceButton"]
 position = Vector2(95, 39)
 sprite_frames = SubResource("SpriteFrames_gn3yh")
-frame_progress = 0.35396007
+frame_progress = 0.93729347
 
 [node name="BetLower" type="Button" parent="DicePlayer"]
 offset_left = 244.0
@@ -173,7 +173,7 @@ text = "Lower"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/BetLower"]
 position = Vector2(108, 30)
 sprite_frames = SubResource("SpriteFrames_uc315")
-frame_progress = 0.73822623
+frame_progress = 0.32155946
 
 [node name="BetHigher" type="Button" parent="DicePlayer"]
 offset_left = 1425.0
@@ -185,7 +185,7 @@ text = "Higher"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/BetHigher"]
 position = Vector2(106, 43)
 sprite_frames = SubResource("SpriteFrames_ibi2q")
-frame_progress = 0.87990427
+frame_progress = 0.46323824
 
 [node name="Cup" type="Sprite2D" parent="."]
 position = Vector2(705, -186)

@@ -13,7 +13,6 @@ var score := 0
 @onready var dice_button := $DicePlayer/DiceButton
 @onready var bet_more_button := $DicePlayer/BetHigher
 @onready var bet_less_button := $DicePlayer/BetLower
-@onready var score_label := $CanvasLayer/ScoreLabel
 
 var less: bool
 
