@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmvikv0mb22rk"]
+
+[ext_resource type="Script" uid="uid://vt46scjtgrst" path="res://slot_machine.gd" id="1_agdmm"]
+
+[node name="slot_machine" type="Node"]
+script = ExtResource("1_agdmm")
+symbols = ["dieRed1.png", "dieRed2.png", "dieRed3.png", "dieRed4.png", "dieWhite1.png", "dieWhite2.png", "dieWhite3.png", "dieWhite4.png"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 139.0
+offset_top = 233.0
+offset_right = 181.0
+offset_bottom = 264.0
+text = "Spin
+"
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
