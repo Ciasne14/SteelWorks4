@@ -239,12 +239,14 @@ func _on_result_timer_timeout() -> void:
 		last_won = bet* randi_range(2,3)
 		play_win_sounds()
 		$Control/Info.text = info_texts[randi_range(1, info_texts.size()-1)]
+		$Control/Info.add_theme_color_override("font_color",Color(255,215,0))
 		tickets = tickets + last_won
 		$AvailablePanel/GPUParticles2D.emitting= true
 		$LastWon/GPUParticles2D.emitting= true
 	else:
 		play_lose_sounds()
 		$Control/Info.text = lose_info_texts[randi_range(1, lose_info_texts.size()-1)]
+		$Control/Info.add_theme_color_override("font_color",Color(255,0,0))
 		last_won = 0
 		
 	bet = 0
