@@ -1,0 +1,76 @@
+[gd_scene load_steps=14 format=3 uid="uid://drs4gpxblqgtg"]
+
+[ext_resource type="Texture2D" uid="uid://bpcmj4a34obxi" path="res://cone.png" id="1_qw808"]
+
+[sub_resource type="Curve" id="Curve_qw808"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ugstt"]
+curve = SubResource("Curve_qw808")
+
+[sub_resource type="Gradient" id="Gradient_qw808"]
+offsets = PackedFloat32Array(0, 0.14150943, 0.43396226, 0.6981132, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.14117648, 0.5764706, 0.14117648, 1, 0.78020865, 0.15128091, 0.19757745, 1, 0.63934314, 0.7580206, 0.19359574, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ugstt"]
+gradient = SubResource("Gradient_qw808")
+
+[sub_resource type="Curve" id="Curve_2eyi3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.34848487, 0.59550565), 0.0, 0.0, 0, 0, Vector2(0.7348485, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_m4ux7"]
+curve = SubResource("Curve_2eyi3")
+
+[sub_resource type="CurveTexture" id="CurveTexture_l8jgj"]
+
+[sub_resource type="Curve" id="Curve_ugstt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2eyi3"]
+curve = SubResource("Curve_ugstt")
+
+[sub_resource type="Curve" id="Curve_mx8uo"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 2.831461), 0.0, 0.0, 0, 0, Vector2(0.9772728, 0.5730338), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_syhow"]
+curve = SubResource("Curve_mx8uo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ugstt"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 0.5
+angle_min = 1.0728835e-05
+angle_max = 1.0000107
+velocity_pivot = Vector3(50, 90, 0)
+direction = Vector3(1, 180, 0)
+spread = 180.0
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, -90, 0)
+linear_accel_min = 42.059998
+linear_accel_max = 99.99999
+linear_accel_curve = SubResource("CurveTexture_l8jgj")
+scale_min = 0.5
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_2eyi3")
+scale_over_velocity_curve = SubResource("CurveTexture_syhow")
+color = Color(1, 0.99215686, 1, 1)
+color_ramp = SubResource("GradientTexture1D_ugstt")
+alpha_curve = SubResource("CurveTexture_ugstt")
+emission_curve = SubResource("CurveTexture_m4ux7")
+
+[node name="Fireworks" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 100
+texture = ExtResource("1_qw808")
+lifetime = 5.0
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_ugstt")
