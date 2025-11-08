@@ -33,7 +33,6 @@ radius = 502.0209
 radius = 83.38465
 
 [node name="Enemy" type="CharacterBody2D"]
-position = Vector2(0, -105)
 motion_mode = 1
 script = ExtResource("1_1f0kj")
 
