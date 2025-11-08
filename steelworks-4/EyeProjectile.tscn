@@ -28,7 +28,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_kg6x3")
 }],
 "loop": true,
-"name": &"default",
+"name": &"fly",
 "speed": 10.0
 }]
 
@@ -37,6 +37,6 @@ script = ExtResource("1_2clj4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4g3q4")
-autoplay = "default"
-frame_progress = 0.7229005
+animation = &"fly"
+autoplay = "fly"
 flip_h = true

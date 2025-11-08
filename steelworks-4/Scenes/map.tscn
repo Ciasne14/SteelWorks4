@@ -1,7 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://c31fxycel1cny"]
+[gd_scene load_steps=12 format=3 uid="uid://c31fxycel1cny"]
 
 [ext_resource type="Texture2D" uid="uid://cwhivrlwq1qi1" path="res://Assets/mapa2.PNG" id="2_26yhd"]
+[ext_resource type="Texture2D" uid="uid://cesukgpnkoivx" path="res://hammerCounter1.png" id="3_6q3n4"]
+[ext_resource type="Texture2D" uid="uid://be2s5sn4yetu6" path="res://Assets/baloon_house2.png" id="3_myvm1"]
+[ext_resource type="Texture2D" uid="uid://dbjiyfyj0ruu7" path="res://hammerCounter2.png" id="4_4c2oa"]
+[ext_resource type="Texture2D" uid="uid://royvqdh60f65" path="res://Assets/baloon_house.png" id="4_q0mm3"]
 [ext_resource type="Texture2D" uid="uid://cyakto6bk6k4f" path="res://Assets/mapa.png" id="5_np2xp"]
+[ext_resource type="Texture2D" uid="uid://bth7nhyjmpg4a" path="res://hammer1.png" id="5_w7jjh"]
+[ext_resource type="Texture2D" uid="uid://bqhpxykivn3yd" path="res://hammer2.png" id="6_6q3n4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olcgw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6q3n4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4c2oa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4c2oa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_w7jjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6q3n4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_np2xp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_myvm1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q0mm3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Map" type="Node2D"]
 scale = Vector2(4, 4)
@@ -34,3 +82,23 @@ polygon = PackedVector2Array(231.14246, -1066.9232, 206.64246, -991.9232, 171.14
 position = Vector2(-172.39246, 124.67322)
 build_mode = 1
 polygon = PackedVector2Array(1319.8925, -1001.9232, 1318.3925, -909.6732, 1332.1425, -815.6732, 1354.8925, -732.1732, 1394.1425, -652.1732, 1606.6425, -669.4232, 1786.3925, -667.1732, 1924.8925, -687.1732, 2065.8926, -724.4232, 2176.6426, -789.1732, 2285.6426, -823.4232, 2437.6426, -842.6732, 2620.8926, -876.9232, 2764.8926, -924.1732, 2894.1426, -968.1732, 2963.3926, -978.1732, 3003.8926, -972.6732, 2976.1426, -1155.1732, 2863.3926, -1111.6732, 2777.8926, -1078.1732, 2651.6426, -1050.4232, 2472.6426, -1013.1732, 2307.1426, -1025.4232, 2164.3926, -1060.9232, 2147.3926, -1092.4232, 2262.8926, -1233.6732, 2375.6426, -1357.6732, 2521.1426, -1511.1732, 2467.6426, -1534.6732, 2429.1426, -1562.4232, 2356.3926, -1453.9232, 2222.1426, -1295.6732, 2118.1426, -1207.1732, 1979.6425, -1120.1732, 1890.6425, -1083.1732, 1747.1425, -1052.4232, 1568.1425, -1028.9232, 1416.8925, -1011.6732)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2092, -577.25)
+scale = Vector2(0.06803232, 0.06803231)
+sprite_frames = SubResource("SpriteFrames_olcgw")
+autoplay = "default"
+frame_progress = 0.4059031
+
+[node name="Hammer" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(84.51866, 106.56701)
+rotation = -0.7853982
+sprite_frames = SubResource("SpriteFrames_4c2oa")
+autoplay = "default"
+
+[node name="Balloon_house" type="AnimatedSprite2D" parent="."]
+position = Vector2(1589.75, 607.25)
+scale = Vector2(0.165342, 0.16534202)
+sprite_frames = SubResource("SpriteFrames_np2xp")
+autoplay = "default"
+frame_progress = 0.25250527

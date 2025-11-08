@@ -89,3 +89,4 @@ func throw_eye():
 	camera.position = Vector2.ZERO
 	camera.zoom = Vector2(1, 1)
 	camera.make_current()
+	animated_sprite.play()
