@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmvikv0mb22rk"]
+[gd_scene load_steps=3 format=3 uid="uid://dmvikv0mb22rk"]
 
 [ext_resource type="Script" uid="uid://vt46scjtgrst" path="res://slot_machine.gd" id="1_agdmm"]
+[ext_resource type="PackedScene" uid="uid://cd5gb2jidlllp" path="res://roll_particle.tscn" id="2_nmlme"]
 
 [node name="slot_machine" type="Node"]
 script = ExtResource("1_agdmm")
-symbols = ["dieRed1.png", "dieRed2.png", "dieRed3.png", "dieRed4.png", "dieWhite1.png", "dieWhite2.png", "dieWhite3.png", "dieWhite4.png"]
+roll_particle = ExtResource("2_nmlme")
 
 [node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(442, 50)
