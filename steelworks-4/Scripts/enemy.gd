@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var nav2d: NavigationAgent2D = $NavigationAgent2D
 @onready var timer: Timer = $Timer
+@onready var death_time: Timer = $DeathTime
+@onready var cam2d: Camera2D = %Camera2D2
 
 var waypoints: Array[Node2D]
 var current_waypoint: int = -1
@@ -76,3 +78,20 @@ func navigate() -> void:
 
 func _on_timer_timeout() -> void:
 	State = States.Wander
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+
+	Engine.time_scale = 0.3
+	body.get_node("CollisionShape2D").queue_free()
+	body.get_node("AnimatedSprite2D").queue_free()
+	cam2d.reparent(self)
+	death_time.start()
+	cam2d.zoom = Vector2(5, 5)
+
+
+func _on_death_time_timeout() -> void:
+	Engine.time_scale = 1
+	cam2d.zoom = Vector2.ZERO
+	get_tree().reload_current_scene()
+	

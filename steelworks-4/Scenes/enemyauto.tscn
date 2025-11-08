@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bk8smn7eq8yrd"]
+[gd_scene load_steps=10 format=3 uid="uid://bk8smn7eq8yrd"]
 
 [ext_resource type="Script" uid="uid://cr5c7hf3sbv11" path="res://Scripts/enemy.gd" id="1_minrr"]
 [ext_resource type="Texture2D" uid="uid://b0tr20tg30w64" path="res://Assets/waciak.png" id="2_p1unt"]
@@ -41,6 +41,9 @@ radius = 462.06924
 [sub_resource type="CircleShape2D" id="CircleShape2D_auwsv"]
 radius = 52.03845
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_p1unt"]
+radius = 44.04543
+
 [node name="Enemy" type="CharacterBody2D"]
 collision_mask = 2
 motion_mode = 1
@@ -59,10 +62,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_1dp5w")
 
-[node name="hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, -45)
-shape = SubResource("CircleShape2D_auwsv")
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
 debug_use_custom = true
@@ -72,6 +71,23 @@ debug_path_custom_line_width = 2.0
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="DeathTime" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="hitbox" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -45)
+shape = SubResource("CircleShape2D_auwsv")
+
+[node name="collision_box" type="CollisionShape2D" parent="."]
+position = Vector2(0, -45)
+shape = SubResource("CircleShape2D_p1unt")
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DeathTime" to="." method="_on_death_time_timeout"]
+[connection signal="timeout" from="DeathTime" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

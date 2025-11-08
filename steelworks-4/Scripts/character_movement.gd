@@ -28,19 +28,20 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
-	if v > 0.0:
-		animated_sprite.animation = "down"
-	elif v < 0.0:
-		animated_sprite.animation = "up"
-	elif h != 0.0:
-		animated_sprite.animation = "walking"
-	else:
-		animated_sprite.animation = "default"
+	if animated_sprite:
+		if v > 0.0:
+			animated_sprite.animation = "down"
+		elif v < 0.0:
+			animated_sprite.animation = "up"
+		elif h != 0.0:
+			animated_sprite.animation = "walking"
+		else:
+			animated_sprite.animation = "default"
 
-	if h > 0.0:
-		animated_sprite.flip_h = true
-	elif h < 0.0:
-		animated_sprite.flip_h = false
+		if h > 0.0:
+			animated_sprite.flip_h = true
+		elif h < 0.0:
+			animated_sprite.flip_h = false
 
 	move_and_slide()
 	
