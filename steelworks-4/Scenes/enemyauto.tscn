@@ -88,7 +88,9 @@ shape = SubResource("CircleShape2D_p1unt")
 
 [node name="blop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_minrr")
+pitch_scale = 0.7
 autoplay = true
+max_distance = 3000.0
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

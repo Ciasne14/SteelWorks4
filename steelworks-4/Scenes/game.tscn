@@ -170,8 +170,9 @@ position = Vector2(-3454, 1541)
 text = "Hmm, coś było słychać w tej ciemności. Muszę rzucić na to okiem."
 
 [node name="Thought_trigger2" parent="." instance=ExtResource("11_o5yvi")]
-position = Vector2(-3447, 1331)
-scale = Vector2(7.125, 1)
+position = Vector2(-3440.0002, 1162)
+rotation = 0.13658327
+scale = Vector2(13.9, 1)
 text = "Wćiśnij Q by rzucić okiem w stronę kursora"
 
 [node name="Waypoints" type="Node" parent="."]

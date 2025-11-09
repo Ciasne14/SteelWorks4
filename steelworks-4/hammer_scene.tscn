@@ -165,7 +165,8 @@ offset_left = 1526.0
 offset_top = 167.0
 offset_right = 1851.0
 offset_bottom = 769.0
-text = "Wciskaj SPACJĘ, aby ładować siłę uderzenia motem. Naciśnij ENTER aby wykonać uderzenie. Od siły uderzenia zależy ile punktów dostaniesz, po osiągnieciu 350, zaliczysz ten poziom."
+text = "Wciskaj SPACJĘ, aby ładować siłę uderzenia motem. Naciśnij ENTER aby wykonać uderzenie. Od siły uderzenia zależy ile punktów dostaniesz, po osiągnieciu 350, zaliczysz ten poziom.
+Wciśnij ESC, gdy zobaczysz w pobliżu zagrożenie."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

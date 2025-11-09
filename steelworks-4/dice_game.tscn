@@ -300,7 +300,8 @@ offset_left = 1472.0
 offset_top = 797.0
 offset_right = 1734.0
 offset_bottom = 1030.0
-text = "Rzuć wyzwanie w kości. Wybierz, czy jesteś w stanie wyrzucić więcej, czy mniej oczek. Za poprawną odpowiedź dostaniesz 50 punktów, za złą, tyle samo stracisz. Po 350 punktach, zakończysz ten poziom."
+text = "Rzuć wyzwanie w kości. Wybierz, czy jesteś w stanie wyrzucić więcej, czy mniej oczek. Za poprawną odpowiedź dostaniesz 50 punktów, za złą, tyle samo stracisz. Po 350 punktach, zakończysz ten poziom.
+Wciśnij ESC, gdy usłyszysz w pobliżu zagrożenie."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
