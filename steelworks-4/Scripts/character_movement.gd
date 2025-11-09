@@ -14,6 +14,8 @@ func _ready() -> void:
 	animated_sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
 	if Game.checkpoint_pos != Vector2(-999, -999):
 		global_position = Game.checkpoint_pos
+	$walk_sound.volume_db = Game.general_sound + Game.effect_sound 
+	$music_sound.volume_db = Game.general_sound + Game.music_sound 
 
 func _physics_process(delta: float) -> void:
 	var h := Input.get_axis("left", "right")
