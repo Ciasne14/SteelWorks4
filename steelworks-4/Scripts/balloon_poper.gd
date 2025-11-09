@@ -7,6 +7,7 @@ extends Node2D
 var score := 0
 #var lives := 3
 var spawn_timer := 0.0
+signal finished
 
 @onready var score_label := $CanvasLayer/ScoreLabel
 @onready var balloons_root := $Balloons
@@ -71,7 +72,9 @@ func _input(event):
 		var clicked_balloon := _get_clicked_balloon(click_pos)
 		if clicked_balloon:
 			clicked_balloon.pop()
-
+	if event.is_action_pressed("ui_cancel"):
+			emit_signal("finished")
+			
 func _get_clicked_balloon(pos: Vector2) -> Node:
 	for b in $Balloons.get_children():
 		if b.has_node("CollisionShape2D"):
@@ -81,3 +84,5 @@ func _get_clicked_balloon(pos: Vector2) -> Node:
 				if dist < shape.radius * b.scale.x:
 					return b
 	return null
+
+	

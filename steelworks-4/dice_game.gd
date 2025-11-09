@@ -16,6 +16,7 @@ var player_roll := 0
 @export var points: int = 50
 
 var less: bool
+signal finished
 
 func _ready():
 	if Game.dice_finished == true:
@@ -114,3 +115,7 @@ func _on_player_cup_timer_timeout() -> void:
 	_roll_player()
 	$DicePlayer/PlayerDie1.visible = true
 	$DicePlayer/PlayerDie2.visible = true
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		emit_signal("finished")

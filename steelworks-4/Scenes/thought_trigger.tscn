@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://cuy4vo8fbp3w8" path="res://Scripts/thought_trigger.gd" id="1_0tncl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmtx2"]
+size = Vector2(99.5, 98)
 
 [node name="Thought_trigger" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_0tncl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mmtx2")
 
-[node name="Label" type="RichTextLabel" parent="."]
-offset_right = 203.0
-offset_bottom = 95.0
-text = "Hmm, coś było słychać w tej ciemności. Muszę rzucić na to okiem."
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="ready" from="." to="." method="_on_ready"]

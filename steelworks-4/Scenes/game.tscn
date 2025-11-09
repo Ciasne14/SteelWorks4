@@ -19,6 +19,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7), Pa
 outlines = Array[PackedVector2Array]([PackedVector2Array(-666.75, -614.75, -563.25, -575.5, -462.75, -555.75, -384.25, -525.25, -276, -478.25, -149.75, -413.75, -35.25, -383.25, 65.25, -293, 105.25, -236.5, 152.25, -200.5, 208.75, -97.75, 262.25, 4.25, 305.25, 64, 361, 110.25, 442.75, 164.5, 469.25, 197.25, 529, 251.5, 570.5, 301, 628.5, 361.25, 707.75, 430.5, 777.75, 495.5, 847.5, 573.25, 892.25, 633.5, 930.75, 653.25, 966, 639, 990.25, 604.5, 998.25, 545.75, 1002, 490.75, 995, 431.25, 994.25, 366.75, 1002.75, 306.5, 1010.75, 246.75, 1024, 162.75, 1237.5, 173, 1223.25, 296.25, 1210, 428, 1218.75, 558.25, 1259.5, 662.5, 1308.75, 727, 1443.75, 833.75, 1535.5, 890.25, 1623.5, 934, 1699.5, 963.25, 1844.75, 1005.5, 1917.5, 985.75, 2284.25, 839.25, 2452.75, 708.25, 2581.5, 595.25, 2691.25, 503.25, 2788.75, 447.75, 2876.5, 373, 2994.25, 268, 3026.25, 135.25, 3050, -24.75, 3084.6426, -140.42322, 3103.25, -247.5, 3113.5, -388, 3085.25, -539.5, 3044.8926, -730.4232, 3039, -811.75, 3051.1426, -917.4232, 3058.5, -965, 3032.5, -1200.75, 3021.25, -1258.5, 3020, -1306.25, 3045.5, -1363, 3056.75, -1425.5, 3056.75, -1479, 3016, -1509, 2951.75, -1525, 2878.75, -1499, 2815.5, -1447.25, 2776, -1379.5, 2764.75, -1325.75, 2782.5, -1279.25, 2839.75, -1274.5, 2877.5, -1279.25, 2922.25, -1256.25, 2955.25, -1238.5, 2965.25, -1199.75, 2965.75, -1163.75, 2975.25, -1122.5, 2980.5, -1061.75, 2997, -972.75, 2989, -878.25, 2981.5, -834.5, 2863, -824.25, 2698.25, -771.25, 2462, -739.75, 2291.75, -732.75, 2142, -683.25, 1979.5, -635.5, 1843.75, -561.75, 1795, -632.25, 1694.75, -645.5, 1558.25, -620.5, 1476.5, -562.5, 1429.75, -536, 1383.75, -524.75, 1354.5, -477, 1228, -477, 1175, -443.75, 1101.25, -423.5, 1029.25, -407.75, 941.5, -401.75, 845.5, -409.5, 762.75, -410.5, 722, -455, 638, -549.25, 239, -812.75, 189.75, -826.5, 157.5, -870, 101.25, -875, -158.25, -889.25, -373, -883.75, -547, -860.5, -627.75, -826, -669.25, -729.25)])
 
 [node name="Game" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_wrm1d")
 
 [node name="Map" parent="." instance=ExtResource("1_ebmjs")]
@@ -36,6 +37,10 @@ position_smoothing_enabled = true
 [node name="Enemy" parent="." instance=ExtResource("4_3dryh")]
 position = Vector2(-2271, 1061)
 
+[node name="Thought_trigger" parent="Enemy" instance=ExtResource("11_o5yvi")]
+scale = Vector2(9.44, 9.44)
+text = "Co to za paskudztwo..."
+
 [node name="Waypoint" parent="." instance=ExtResource("5_wowpa")]
 position = Vector2(-7433, -1031)
 
@@ -46,7 +51,6 @@ position = Vector2(-4427, -1832)
 position = Vector2(-2486, -537)
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="."]
-visible = false
 position = Vector2(-4966, 1505)
 scale = Vector2(4, 4)
 navigation_polygon = SubResource("NavigationPolygon_3dryh")
@@ -132,20 +136,23 @@ vertices = PackedVector2Array(821.5, -337, 919.5, -331.75, 1029.25, -330, 1113, 
 affect_navigation_mesh = true
 
 [node name="hammer" parent="." instance=ExtResource("6_v158k")]
-position = Vector2(610, 3593)
+position = Vector2(630, 3496)
 target_scene = ExtResource("7_h4fw4")
+is_minigame = true
 
 [node name="balloons" parent="." instance=ExtResource("6_v158k")]
 position = Vector2(5441.0005, 743)
 scale = Vector2(5.985, 1)
 target_scene = ExtResource("8_ldgsr")
+is_minigame = true
 
 [node name="dice_game" parent="." instance=ExtResource("6_v158k")]
 position = Vector2(-6429, -1020)
 target_scene = ExtResource("9_h4fw4")
+is_minigame = true
 
 [node name="endgame" parent="." instance=ExtResource("6_v158k")]
-position = Vector2(7042, -3058)
+position = Vector2(6713, -3943)
 scale = Vector2(2.415, 2.415)
 target_scene = ExtResource("10_rku1e")
 
@@ -156,5 +163,16 @@ position = Vector2(-6518.0005, -906.9998)
 position = Vector2(5414, 829)
 scale = Vector2(44.235, 5)
 
+[node name="MinigameLayer" type="CanvasLayer" parent="."]
+
+[node name="checkpoint3" parent="." instance=ExtResource("10_ldgsr")]
+position = Vector2(638, 3544)
+
 [node name="Thought_trigger" parent="." instance=ExtResource("11_o5yvi")]
-position = Vector2(-4025, 996)
+position = Vector2(-3454, 1541)
+text = "Hmm, coś było słychać w tej ciemności. Muszę rzucić na to okiem."
+
+[node name="Thought_trigger2" parent="." instance=ExtResource("11_o5yvi")]
+position = Vector2(-3447, 1331)
+scale = Vector2(7.125, 1)
+text = "Wćiśnij Q by rzucić okiem w stronę kursora"

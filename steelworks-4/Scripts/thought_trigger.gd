@@ -1,7 +1,8 @@
 extends Area2D
 var player = null
+@export var text: String
 
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
 	player = body
-	body.get_node("RichTextLabel").queue_free()
+	body.speech(text)
+	queue_free()

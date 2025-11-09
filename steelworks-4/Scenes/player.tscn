@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://x1yh7yc6vtcn"]
+[gd_scene load_steps=30 format=3 uid="uid://x1yh7yc6vtcn"]
 
 [ext_resource type="Script" uid="uid://bfec1gawwa52u" path="res://Scripts/character_movement.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bo218rijjy35x" path="res://Assets/animation.png" id="2_cvnsp"]
 [ext_resource type="PackedScene" uid="uid://col3kiuxw2f7" path="res://EyeProjectile.tscn" id="2_vgqql"]
 [ext_resource type="Texture2D" uid="uid://bpt8sp4rbtp81" path="res://Assets/shader.PNG" id="3_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://dxtxyq4yxloa8" path="res://Assets/dymek.png" id="5_3smsa"]
 [ext_resource type="AudioStream" uid="uid://dhuv6s44ewrcc" path="res://footsetes.mp3" id="5_fkybt"]
 [ext_resource type="AudioStream" uid="uid://pnhi5qnw3g6s" path="res://Scenes/Circus Clown Music - Sound Effect (HD) [S280Pqq3T_w].mp3" id="6_x3wgy"]
 
@@ -213,10 +214,27 @@ texture = ExtResource("3_6t5aa")
 
 [node name="Bubble" type="Sprite2D" parent="."]
 visible = false
+position = Vector2(-3.8146973e-06, -265)
+scale = Vector2(0.48768935, 0.4876894)
+texture = ExtResource("5_3smsa")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Bubble"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="RichTextLabel" type="Label" parent="Bubble"]
+anchors_preset = -1
+anchor_left = 0.12646192
+anchor_top = 0.1349515
+anchor_right = 0.91725004
+anchor_bottom = 0.77961177
+offset_left = -258.0
+offset_top = -132.0
+offset_right = -258.0
+offset_bottom = -132.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+theme_override_font_sizes/font_size = 35
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="walk_sound" type="AudioStreamPlayer2D" parent="."]
@@ -227,3 +245,12 @@ autoplay = true
 stream = ExtResource("6_x3wgy")
 pitch_scale = 0.3
 autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 7.0
+
+[node name="Image" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -221)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
