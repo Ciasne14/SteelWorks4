@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b65vw3mgc3gww"]
+[gd_scene load_steps=6 format=3 uid="uid://b65vw3mgc3gww"]
 
 [ext_resource type="Texture2D" uid="uid://b86h3gv6212hq" path="res://Assets/opcje menu1.png" id="1_4tmxy"]
 [ext_resource type="PackedScene" uid="uid://3cw2pi4d5jnf" path="res://Scenes/back_to_menu.tscn" id="1_5v8ap"]
+[ext_resource type="Script" uid="uid://83d8846do3g6" path="res://Scripts/options.gd" id="1_ww8vx"]
 [ext_resource type="Texture2D" uid="uid://b1sabhx8t2471" path="res://Assets/opcje menu2.png" id="2_qyyw6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ww8vx"]
@@ -19,6 +20,7 @@ animations = [{
 }]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_ww8vx")
 
 [node name="backToMainMenu" parent="." instance=ExtResource("1_5v8ap")]
 offset_left = 1403.0
@@ -40,8 +42,10 @@ offset_top = -49.0
 offset_right = 284.0
 offset_bottom = -33.0
 size_flags_horizontal = 4
-min_value = -12.0
-max_value = 12.0
+min_value = 1.0
+max_value = 2.0
+step = 0.1
+value = 1.0
 
 [node name="sfxvolume" type="HSlider" parent="AnimatedSprite2D"]
 custom_minimum_size = Vector2(350, 0)
@@ -50,8 +54,10 @@ offset_top = 136.0
 offset_right = 284.0
 offset_bottom = 152.0
 size_flags_horizontal = 4
-min_value = -12.0
-max_value = 12.0
+min_value = 1.0
+max_value = 2.0
+step = 0.1
+value = 1.0
 
 [node name="musicvolume" type="HSlider" parent="AnimatedSprite2D"]
 custom_minimum_size = Vector2(350, 0)
@@ -60,10 +66,13 @@ offset_top = 305.0
 offset_right = 284.0
 offset_bottom = 321.0
 size_flags_horizontal = 4
-min_value = -12.0
-max_value = 12.0
+min_value = 1.0
+max_value = 2.0
+step = 0.1
+value = 1.0
 
 [connection signal="button_down" from="backToMainMenu" to="backToMainMenu" method="_on_button_down"]
-[connection signal="mouse_exited" from="AnimatedSprite2D/mainvolume" to="backToMainMenu" method="_on_mainvolume_mouse_exited"]
-[connection signal="mouse_exited" from="AnimatedSprite2D/sfxvolume" to="backToMainMenu" method="_on_sfxvolume_mouse_exited"]
-[connection signal="mouse_exited" from="AnimatedSprite2D/musicvolume" to="backToMainMenu" method="_on_musicvolume_mouse_exited"]
+[connection signal="changed" from="AnimatedSprite2D/mainvolume" to="." method="_on_mainvolume_changed"]
+[connection signal="mouse_exited" from="AnimatedSprite2D/mainvolume" to="." method="_on_mainvolume_mouse_exited"]
+[connection signal="mouse_exited" from="AnimatedSprite2D/sfxvolume" to="." method="_on_sfxvolume_mouse_exited"]
+[connection signal="mouse_exited" from="AnimatedSprite2D/musicvolume" to="." method="_on_musicvolume_mouse_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://x1yh7yc6vtcn"]
+[gd_scene load_steps=29 format=3 uid="uid://x1yh7yc6vtcn"]
 
 [ext_resource type="Script" uid="uid://bfec1gawwa52u" path="res://Scripts/character_movement.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bo218rijjy35x" path="res://Assets/animation.png" id="2_cvnsp"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bpt8sp4rbtp81" path="res://Assets/shader.PNG" id="3_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://dxtxyq4yxloa8" path="res://Assets/dymek.png" id="5_3smsa"]
 [ext_resource type="AudioStream" uid="uid://dhuv6s44ewrcc" path="res://footsetes.mp3" id="5_fkybt"]
-[ext_resource type="AudioStream" uid="uid://pnhi5qnw3g6s" path="res://Scenes/Circus Clown Music - Sound Effect (HD) [S280Pqq3T_w].mp3" id="6_x3wgy"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cvnsp"]
 load_path = "res://.godot/imported/animation.png-5d92e7d61c9e542bc14c27c1311084ca.ctex"
@@ -239,12 +238,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="walk_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_fkybt")
-autoplay = true
-
-[node name="music_sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_x3wgy")
-pitch_scale = 0.3
-autoplay = true
+volume_db = -40.0
+pitch_scale = 1.2
+bus = &"SFX"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 7.0

@@ -21,6 +21,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-666.75, -614.75, -563.
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_wrm1d")
+waciak = ExtResource("4_3dryh")
 
 [node name="Spawner" type="Marker2D" parent="."]
 position = Vector2(6838, -3797)
@@ -151,16 +152,18 @@ scale = Vector2(2.415, 2.415)
 target_scene = ExtResource("10_rku1e")
 
 [node name="checkpoint" parent="." instance=ExtResource("10_ldgsr")]
-position = Vector2(-6518.0005, -906.9998)
+position = Vector2(-6414.0005, -924.00006)
+scale = Vector2(24, 27.095)
 
 [node name="checkpoint2" parent="." instance=ExtResource("10_ldgsr")]
 position = Vector2(5414, 829)
-scale = Vector2(44.235, 5)
+scale = Vector2(44.235, 30.165)
 
 [node name="MinigameLayer" type="CanvasLayer" parent="."]
 
 [node name="checkpoint3" parent="." instance=ExtResource("10_ldgsr")]
 position = Vector2(638, 3544)
+scale = Vector2(17.275, 20.775)
 
 [node name="Thought_trigger" parent="." instance=ExtResource("11_o5yvi")]
 position = Vector2(-3454, 1541)
@@ -238,3 +241,12 @@ position = Vector2(4216, -316)
 
 [node name="Waypoint22" parent="Waypoints" instance=ExtResource("5_wowpa")]
 position = Vector2(2581, 148)
+
+[node name="Enemy2" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(1043, 3607)
+
+[node name="Enemy3" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(1403, 103)
+
+[node name="Enemy4" parent="." instance=ExtResource("4_3dryh")]
+position = Vector2(6970, -3517)

@@ -3,11 +3,10 @@ extends Node2D
 @onready var char2d: CharacterBody2D = $CharacterBody2D
 @onready var minigame_layer: CanvasLayer = $MinigameLayer
 @onready var spawner: Marker2D = $Spawner
-const ENEMYAUTO = preload("uid://bk8smn7eq8yrd")
+@export var waciak: PackedScene
 
 
 var active_minigame: Node = null
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$CharacterBody2D.go_blind()
@@ -26,22 +25,19 @@ func start_minigame(scene: PackedScene):
 		active_minigame = scene.instantiate()
 		minigame_layer.add_child(active_minigame)
 
-# podłączenie sygnału wyjścia
 	if active_minigame.has_signal("finished"):
 		active_minigame.connect("finished", Callable(self, "_on_minigame_finished"))
-
-	# zatrzymujemy tylko gracza (świat dalej działa)
+		
 	char2d.set_physics_process(false)
 	char2d.set_process(false)
 
 func _on_minigame_finished():
 	if active_minigame:
 		active_minigame.visible = false
-
-	# wznawiamy gracza
 	char2d.set_physics_process(true)
 	char2d.set_process(true)
+	
 func spawn_enemy():
-	var waciak = ENEMYAUTO.instantiate()
-	waciak.position = spawner.position
-	add_child(waciak)
+	var enemy = waciak.instantiate()
+	enemy.position = spawner.position
+	add_child(enemy)

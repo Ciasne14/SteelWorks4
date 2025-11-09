@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs32i5rmhohcq"]
+
+[ext_resource type="AudioStream" uid="uid://pnhi5qnw3g6s" path="res://Scenes/Circus Clown Music - Sound Effect (HD) [S280Pqq3T_w].mp3" id="1_jxntt"]
+[ext_resource type="Script" uid="uid://ncecnj08baa3" path="res://Scripts/audio_stream_player.gd" id="2_5g7r6"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_jxntt")
+volume_db = -50.0
+pitch_scale = 0.4
+autoplay = true
+bus = &"Music"
+script = ExtResource("2_5g7r6")
+
+[connection signal="ready" from="." to="." method="_on_ready"]
