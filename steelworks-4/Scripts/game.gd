@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var char2d: CharacterBody2D = $CharacterBody2D
 @onready var minigame_layer: CanvasLayer = $MinigameLayer
+@onready var spawner: Marker2D = $Spawner
+const ENEMYAUTO = preload("uid://bk8smn7eq8yrd")
 
 
 var active_minigame: Node = null
@@ -39,3 +41,7 @@ func _on_minigame_finished():
 	# wznawiamy gracza
 	char2d.set_physics_process(true)
 	char2d.set_process(true)
+func spawn_enemy():
+	var waciak = ENEMYAUTO.instantiate()
+	waciak.position = spawner.position
+	add_child(waciak)

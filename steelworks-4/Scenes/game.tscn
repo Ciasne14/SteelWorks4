@@ -22,6 +22,9 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-666.75, -614.75, -563.
 y_sort_enabled = true
 script = ExtResource("1_wrm1d")
 
+[node name="Spawner" type="Marker2D" parent="."]
+position = Vector2(6838, -3797)
+
 [node name="Map" parent="." instance=ExtResource("1_ebmjs")]
 position = Vector2(20, 20)
 
@@ -41,16 +44,8 @@ position = Vector2(-2271, 1061)
 scale = Vector2(9.44, 9.44)
 text = "Co to za paskudztwo..."
 
-[node name="Waypoint" parent="." instance=ExtResource("5_wowpa")]
-position = Vector2(-7433, -1031)
-
-[node name="Waypoint2" parent="." instance=ExtResource("5_wowpa")]
-position = Vector2(-4427, -1832)
-
-[node name="Waypoint3" parent="." instance=ExtResource("5_wowpa")]
-position = Vector2(-2486, -537)
-
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="."]
+visible = false
 position = Vector2(-4966, 1505)
 scale = Vector2(4, 4)
 navigation_polygon = SubResource("NavigationPolygon_3dryh")
@@ -176,3 +171,71 @@ text = "Hmm, coś było słychać w tej ciemności. Muszę rzucić na to okiem."
 position = Vector2(-3447, 1331)
 scale = Vector2(7.125, 1)
 text = "Wćiśnij Q by rzucić okiem w stronę kursora"
+
+[node name="Waypoints" type="Node" parent="."]
+
+[node name="Waypoint" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(-7433, -1031)
+
+[node name="Waypoint2" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(-4427, -1832)
+
+[node name="Waypoint3" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(-4414, 355)
+
+[node name="Waypoint4" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(-3486, -1207)
+
+[node name="Waypoint5" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(-2267, 1045)
+
+[node name="Waypoint6" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(-2016, 3031)
+
+[node name="Waypoint7" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(-968, 2029)
+
+[node name="Waypoint8" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(-884, 8)
+
+[node name="Waypoint9" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(175, 3962)
+
+[node name="Waypoint10" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(1288, 3460)
+
+[node name="Waypoint11" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(3016, 5260)
+
+[node name="Waypoint12" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(969, -535)
+
+[node name="Waypoint13" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(3954, -1108)
+
+[node name="Waypoint14" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(7178, -850)
+
+[node name="Waypoint15" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(2188, 1197)
+
+[node name="Waypoint16" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(3585, 2537)
+
+[node name="Waypoint17" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(5806, 3208)
+
+[node name="Waypoint18" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(4493, 1351)
+
+[node name="Waypoint19" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(7190, 1140)
+
+[node name="Waypoint20" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(6388, -3789)
+
+[node name="Waypoint21" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(4216, -316)
+
+[node name="Waypoint22" parent="Waypoints" instance=ExtResource("5_wowpa")]
+position = Vector2(2581, 148)
