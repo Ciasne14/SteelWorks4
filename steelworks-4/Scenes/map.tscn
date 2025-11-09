@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c31fxycel1cny"]
+[gd_scene load_steps=15 format=3 uid="uid://c31fxycel1cny"]
 
 [ext_resource type="Texture2D" uid="uid://cwhivrlwq1qi1" path="res://Assets/mapa2.PNG" id="2_26yhd"]
 [ext_resource type="Texture2D" uid="uid://cesukgpnkoivx" path="res://hammerCounter1.png" id="3_6q3n4"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cyakto6bk6k4f" path="res://Assets/mapa.png" id="5_np2xp"]
 [ext_resource type="Texture2D" uid="uid://bth7nhyjmpg4a" path="res://hammer1.png" id="5_w7jjh"]
 [ext_resource type="Texture2D" uid="uid://bqhpxykivn3yd" path="res://hammer2.png" id="6_6q3n4"]
+[ext_resource type="Texture2D" uid="uid://8t4cqaxsd5o5" path="res://Assets/cupsgame1.png" id="9_olcgw"]
+[ext_resource type="Texture2D" uid="uid://btcia3ssxgjfw" path="res://Assets/cupsgame2.png" id="10_dlo4w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_olcgw"]
 animations = [{
@@ -45,6 +47,20 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_q0mm3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q6lx1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_olcgw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dlo4w")
 }],
 "loop": true,
 "name": &"default",
@@ -97,8 +113,14 @@ sprite_frames = SubResource("SpriteFrames_4c2oa")
 autoplay = "default"
 
 [node name="Balloon_house" type="AnimatedSprite2D" parent="."]
-position = Vector2(1589.75, 607.25)
-scale = Vector2(0.165342, 0.16534202)
+position = Vector2(1580.5, 614.25)
+scale = Vector2(0.13848068, 0.1384807)
 sprite_frames = SubResource("SpriteFrames_np2xp")
 autoplay = "default"
 frame_progress = 0.25250527
+
+[node name="DiceGame" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1385.75, 128.75)
+scale = Vector2(0.13820699, 0.13820699)
+sprite_frames = SubResource("SpriteFrames_q6lx1")
+autoplay = "default"

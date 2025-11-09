@@ -1,6 +1,7 @@
 extends Node
 
-
+var checkpoint_pos = Vector2(-999, -999)
+var previous_checkpoint_node: Node2D = null
 var balloons_finished = false
 var hammer_finished = false
 var dice_finished = false

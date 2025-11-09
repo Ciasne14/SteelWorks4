@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://natohm0dv3ng"]
+[gd_scene load_steps=20 format=3 uid="uid://natohm0dv3ng"]
 
 [ext_resource type="PackedScene" uid="uid://x1yh7yc6vtcn" path="res://Scenes/player.tscn" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://cr38grjf305ih" path="res://Assets/mainmenu.png" id="1_n45e2"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://bniok2pnqgmfb" path="res://Assets/opcje2.png" id="10_8dnnj"]
 [ext_resource type="Texture2D" uid="uid://cvb38frheqqp" path="res://Assets/wyjście1.png" id="11_m3bi6"]
 [ext_resource type="Texture2D" uid="uid://cmly0cuoexn7y" path="res://Assets/wyjście2.png" id="12_wyh8j"]
+[ext_resource type="Texture2D" uid="uid://cejbbk6igvfpd" path="res://Assets/cyrk1.png" id="13_vtepg"]
+[ext_resource type="Texture2D" uid="uid://hmbkg60sluxg" path="res://Assets/cyrk2.png" id="14_8dnnj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ujyyl"]
 animations = [{
@@ -58,6 +60,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_m3bi6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_vtepg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_8dnnj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="MainMenu" type="Node2D"]
 y_sort_enabled = true
 
@@ -71,7 +87,7 @@ position = Vector2(958, 835)
 collision_layer = 3
 
 [node name="Play" parent="." instance=ExtResource("4_opfnp")]
-position = Vector2(966, 358)
+position = Vector2(966, 255)
 scale = Vector2(7.915, 3.88)
 target_scene = ExtResource("5_cp0ys")
 
@@ -150,3 +166,10 @@ position = Vector2(953, 1036.0001)
 scale = Vector2(0.86124694, 0.86124706)
 sprite_frames = SubResource("SpriteFrames_4nkqq")
 autoplay = "default"
+
+[node name="cyrkNaOko" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(958, 449)
+sprite_frames = SubResource("SpriteFrames_m3bi6")
+autoplay = "default"
+offset = Vector2(0, -213.73)

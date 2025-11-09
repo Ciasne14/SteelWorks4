@@ -1,37 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://bomsn1mjnhtxc"]
+[gd_scene load_steps=5 format=3 uid="uid://bomsn1mjnhtxc"]
 
+[ext_resource type="Texture2D" uid="uid://waanrpgpkqvi" path="res://Assets/autorzy menu1.png" id="1_ccovl"]
 [ext_resource type="PackedScene" uid="uid://3cw2pi4d5jnf" path="res://Scenes/back_to_menu.tscn" id="1_r18jl"]
+[ext_resource type="Texture2D" uid="uid://ca4t1xtoyguub" path="res://Assets/autorzy menu2.png" id="2_1bamb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xelri"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ccovl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1bamb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Credits" type="Node2D"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 813.0
-offset_top = 502.0
-offset_right = 950.0
-offset_bottom = 561.0
-theme_override_font_sizes/font_size = 43
-text = "Azghal"
-
-[node name="Label2" type="Label" parent="."]
-offset_left = 953.0
-offset_top = 598.0
-offset_right = 1171.0
-offset_bottom = 657.0
-theme_override_font_sizes/font_size = 43
-text = "Godwinek"
-
-[node name="Label3" type="Label" parent="."]
-offset_left = 885.0
-offset_top = 370.0
-offset_right = 1103.0
-offset_bottom = 429.0
-theme_override_font_sizes/font_size = 43
-text = "EndRayRei"
-
 [node name="backToMainMenu" parent="." instance=ExtResource("1_r18jl")]
-offset_left = 898.0
-offset_top = 689.0
-offset_right = 1075.0
-offset_bottom = 761.0
+offset_left = 48.000008
+offset_top = 903.00006
+offset_right = 525.9696
+offset_bottom = 1055.5757
+rotation = -0.12061311
+text = ""
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(960, 540)
+sprite_frames = SubResource("SpriteFrames_xelri")
+autoplay = "default"
+frame_progress = 0.5488598
 
 [connection signal="button_down" from="backToMainMenu" to="backToMainMenu" method="_on_button_down"]
