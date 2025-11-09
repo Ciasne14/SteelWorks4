@@ -40,8 +40,8 @@ offset_top = -49.0
 offset_right = 284.0
 offset_bottom = -33.0
 size_flags_horizontal = 4
-max_value = 1.0
-step = 0.001
+min_value = -12.0
+max_value = 12.0
 
 [node name="sfxvolume" type="HSlider" parent="AnimatedSprite2D"]
 custom_minimum_size = Vector2(350, 0)
@@ -50,8 +50,8 @@ offset_top = 136.0
 offset_right = 284.0
 offset_bottom = 152.0
 size_flags_horizontal = 4
-max_value = 1.0
-step = 0.001
+min_value = -12.0
+max_value = 12.0
 
 [node name="musicvolume" type="HSlider" parent="AnimatedSprite2D"]
 custom_minimum_size = Vector2(350, 0)
@@ -60,7 +60,10 @@ offset_top = 305.0
 offset_right = 284.0
 offset_bottom = 321.0
 size_flags_horizontal = 4
-max_value = 1.0
-step = 0.001
+min_value = -12.0
+max_value = 12.0
 
 [connection signal="button_down" from="backToMainMenu" to="backToMainMenu" method="_on_button_down"]
+[connection signal="mouse_exited" from="AnimatedSprite2D/mainvolume" to="backToMainMenu" method="_on_mainvolume_mouse_exited"]
+[connection signal="mouse_exited" from="AnimatedSprite2D/sfxvolume" to="backToMainMenu" method="_on_sfxvolume_mouse_exited"]
+[connection signal="mouse_exited" from="AnimatedSprite2D/musicvolume" to="backToMainMenu" method="_on_musicvolume_mouse_exited"]

@@ -14,6 +14,7 @@ var player = null
 
 func _on_ready() -> void:
 	setup()
+	$blop.volume_db = Game.general_sound + Game.effect_sound 
 	
 func setup() -> void:
 	for waypoint in get_tree().get_nodes_in_group("Waypoint"):

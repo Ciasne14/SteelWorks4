@@ -237,11 +237,11 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="walk_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_fkybt")
 autoplay = true
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+[node name="music_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_x3wgy")
 pitch_scale = 0.3
 autoplay = true
