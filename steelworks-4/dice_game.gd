@@ -18,17 +18,15 @@ var player_roll := 0
 var less: bool
 
 func _ready():
-	print("test")
 	if Game.dice_finished == true:
 		get_tree().change_scene_to_file("res://Scenes/game.tscn")
-	else:
-		$DicePlayer/DiceButton/AnimatedSprite2D.play()
-		$DicePlayer/BetLower/AnimatedSprite2D.play()
-		$DicePlayer/BetHigher/AnimatedSprite2D.play()
-		dice_button.pressed.connect(_on_roll_pressed)
-		bet_more_button.pressed.connect(_on_bet_more_pressed)
-		bet_less_button.pressed.connect(_on_bet_less_pressed)
-		_reset_game()
+	$DicePlayer/DiceButton/AnimatedSprite2D.play()
+	$DicePlayer/BetLower/AnimatedSprite2D.play()
+	$DicePlayer/BetHigher/AnimatedSprite2D.play()
+	dice_button.pressed.connect(_on_roll_pressed)
+	bet_more_button.pressed.connect(_on_bet_more_pressed)
+	bet_less_button.pressed.connect(_on_bet_less_pressed)
+	_reset_game()
 
 # Generowanie wyniku na stole
 func _roll_table():

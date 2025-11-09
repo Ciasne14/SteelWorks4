@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://chx7s8mc1u127"]
+[gd_scene load_steps=14 format=3 uid="uid://chx7s8mc1u127"]
 
 [ext_resource type="PackedScene" uid="uid://c31fxycel1cny" path="res://Scenes/map.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://c2ttf64uip81m" path="res://Scripts/game.gd" id="1_wrm1d"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bov6hi1kghpi0" path="res://Scenes/balloon_poper.tscn" id="8_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://dw2ew71grxsg" path="res://dice_game.tscn" id="9_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://c66lij1sq8qme" path="res://Scenes/checkpoint.tscn" id="10_ldgsr"]
+[ext_resource type="PackedScene" uid="uid://c80v73kocsixr" path="res://end_screen.tscn" id="10_rku1e"]
 [ext_resource type="PackedScene" uid="uid://d3sqhmoovpyvx" path="res://Scenes/thought_trigger.tscn" id="11_o5yvi"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3dryh"]
@@ -131,27 +132,22 @@ vertices = PackedVector2Array(821.5, -337, 919.5, -331.75, 1029.25, -330, 1113, 
 affect_navigation_mesh = true
 
 [node name="hammer" parent="." instance=ExtResource("6_v158k")]
-visible = false
 position = Vector2(610, 3593)
 target_scene = ExtResource("7_h4fw4")
 
 [node name="balloons" parent="." instance=ExtResource("6_v158k")]
-visible = false
 position = Vector2(5441.0005, 743)
 scale = Vector2(5.985, 1)
 target_scene = ExtResource("8_ldgsr")
 
 [node name="dice_game" parent="." instance=ExtResource("6_v158k")]
-visible = false
 position = Vector2(-6429, -1020)
 target_scene = ExtResource("9_h4fw4")
 
-[node name="transition2" parent="." instance=ExtResource("6_v158k")]
-visible = false
+[node name="endgame" parent="." instance=ExtResource("6_v158k")]
 position = Vector2(7042, -3058)
 scale = Vector2(2.415, 2.415)
-target_scene = ExtResource("10_ldgsr")
-exits_game = true
+target_scene = ExtResource("10_rku1e")
 
 [node name="checkpoint" parent="." instance=ExtResource("10_ldgsr")]
 position = Vector2(-6518.0005, -906.9998)
