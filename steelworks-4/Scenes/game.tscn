@@ -150,6 +150,7 @@ target_scene = ExtResource("9_h4fw4")
 visible = false
 position = Vector2(7042, -3058)
 scale = Vector2(2.415, 2.415)
+target_scene = ExtResource("10_ldgsr")
 exits_game = true
 
 [node name="checkpoint" parent="." instance=ExtResource("10_ldgsr")]

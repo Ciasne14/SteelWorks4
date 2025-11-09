@@ -7,12 +7,13 @@ var roll_result := 0
 var player_roll := 0
 
 # Punkty gracza
-var score := 0
 
 # UI elements
 @onready var dice_button := $DicePlayer/DiceButton
 @onready var bet_more_button := $DicePlayer/BetHigher
 @onready var bet_less_button := $DicePlayer/BetLower
+@export var score: int = 0
+@export var points: int = 50
 
 var less: bool
 
@@ -51,15 +52,15 @@ func _roll_player():
 	player_roll = player_roll_1 + player_roll_2  # Suma dwóch kości od 2 do 12
 	
 	if(less && player_roll < roll_result):
-		score=score+500
+		score=score+points
 	elif(less && player_roll > roll_result):
-		score=score-50
+		score=score-points
 	elif(!less && player_roll < roll_result):
-		score=score-50
+		score=score-points
 	elif(!less && player_roll > roll_result):
-		score=score+500
+		score=score+points
 	else:
-		score=score-50
+		score=score-points
 	$Label2.text = str(score)
 	if(score>349):
 		Game.dice_finished = true
