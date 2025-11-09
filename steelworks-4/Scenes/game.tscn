@@ -37,6 +37,10 @@ position_smoothing_enabled = true
 [node name="Enemy" parent="." instance=ExtResource("4_3dryh")]
 position = Vector2(-2271, 1061)
 
+[node name="Thought_trigger" parent="Enemy" instance=ExtResource("11_o5yvi")]
+scale = Vector2(9.44, 9.44)
+text = "Co to za paskudztwo..."
+
 [node name="Waypoint" parent="." instance=ExtResource("5_wowpa")]
 position = Vector2(-7433, -1031)
 
@@ -159,10 +163,16 @@ position = Vector2(-6518.0005, -906.9998)
 position = Vector2(5414, 829)
 scale = Vector2(44.235, 5)
 
-[node name="Thought_trigger" parent="." instance=ExtResource("11_o5yvi")]
-position = Vector2(-4025, 996)
-
 [node name="MinigameLayer" type="CanvasLayer" parent="."]
 
 [node name="checkpoint3" parent="." instance=ExtResource("10_ldgsr")]
 position = Vector2(638, 3544)
+
+[node name="Thought_trigger" parent="." instance=ExtResource("11_o5yvi")]
+position = Vector2(-3454, 1541)
+text = "Hmm, coś było słychać w tej ciemności. Muszę rzucić na to okiem."
+
+[node name="Thought_trigger2" parent="." instance=ExtResource("11_o5yvi")]
+position = Vector2(-3447, 1331)
+scale = Vector2(7.125, 1)
+text = "Wćiśnij Q by rzucić okiem w stronę kursora"

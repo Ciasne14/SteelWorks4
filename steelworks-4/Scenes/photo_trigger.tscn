@@ -1,13 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3sqhmoovpyvx"]
+[gd_scene load_steps=3 format=3 uid="uid://qrn3464l8du8"]
 
-[ext_resource type="Script" uid="uid://cuy4vo8fbp3w8" path="res://Scripts/thought_trigger.gd" id="1_0tncl"]
+[ext_resource type="Script" uid="uid://cefwjrh14aj15" path="res://Scripts/photo_trigger.gd" id="1_fxci2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmtx2"]
 size = Vector2(99.5, 98)
 
 [node name="Thought_trigger" type="Area2D"]
 collision_mask = 2
-script = ExtResource("1_0tncl")
+script = ExtResource("1_fxci2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mmtx2")

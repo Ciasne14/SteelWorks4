@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
-const SPEED := 550.0
+const SPEED := 150.0
 @onready var shader: Sprite2D = $Shader
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var camera: Camera2D = %Camera2D2
 @onready var bubble: Sprite2D = $Bubble
-@onready var label: RichTextLabel = $Bubble/RichTextLabel
+@onready var label: Label = $Bubble/RichTextLabel
+@onready var timer: Timer = $Timer
+@onready var image: Sprite2D = $Image
 
 @export var eye_scene: PackedScene
 var is_throwing := false
@@ -98,3 +100,15 @@ func throw_eye():
 func speech(incoming_text):
 	bubble.visible = true
 	label.text = incoming_text
+	timer.start()
+	
+func photo(incoming_image):
+	image = incoming_image
+	image.centered
+	image.visible = true
+	timer.start()
+
+
+func _on_timer_timeout() -> void:
+	bubble.visible = false
+	image.visible = false
