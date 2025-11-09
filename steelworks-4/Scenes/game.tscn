@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c2ttf64uip81m" path="res://Scripts/game.gd" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://x1yh7yc6vtcn" path="res://Scenes/player.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://bk8smn7eq8yrd" path="res://Scenes/enemyauto.tscn" id="4_3dryh"]
-[ext_resource type="PackedScene" uid="uid://usgtjo85ksj" path="res://Scenes/waypoint.tscn" id="5_wrwpa"]
+[ext_resource type="PackedScene" uid="uid://usgtjo85ksj" path="res://Scenes/waypoint.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://yvo3da4iw4py" path="res://Scenes/transition.tscn" id="6_v158k"]
 [ext_resource type="PackedScene" uid="uid://bvlwha1aw5ug8" path="res://hammer_scene.tscn" id="7_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://bov6hi1kghpi0" path="res://Scenes/balloon_poper.tscn" id="8_ldgsr"]
