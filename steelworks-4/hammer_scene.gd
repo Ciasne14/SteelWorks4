@@ -6,7 +6,6 @@ var str_value = 0
 var jump_force = 15
 var score = 0
 
-
 @onready var ball : RigidBody2D = $RigidBody2D
 
 func _ready() -> void:
@@ -46,7 +45,6 @@ func _on_hammerfall_timeout() -> void:
 	str_value=0
 	
 	if(score>349):
-		Game.hammer_finished = true
-		get_tree().change_scene_to_file("res://Scenes/game.tscn")
 		Game.games_finished()
+		get_tree().change_scene_to_file("res://Scenes/game.tscn")
 	$RigidBody2D/PointLight2D.visible = true

@@ -1,0 +1,313 @@
+[gd_scene load_steps=31 format=3 uid="uid://dw2ew71grxsg"]
+
+[ext_resource type="Script" uid="uid://b1buqschwr4d7" path="res://dice_game.gd" id="1_a4m0k"]
+[ext_resource type="Texture2D" uid="uid://cxtjlg14oe6wj" path="res://diebackground.png" id="2_j8p6f"]
+[ext_resource type="Texture2D" uid="uid://h7merehgtskf" path="res://wiecej1.png" id="3_cjklt"]
+[ext_resource type="Texture2D" uid="uid://cbvns3wqjkmtv" path="res://die11.png" id="3_gs3rd"]
+[ext_resource type="Texture2D" uid="uid://oj0mp3yk1ktp" path="res://mniej1.png" id="3_ibi2q"]
+[ext_resource type="Texture2D" uid="uid://bv8koqiet782q" path="res://roll1.png" id="3_uc315"]
+[ext_resource type="Texture2D" uid="uid://cmvm2xq67l6rl" path="res://cup1.png" id="3_yqda1"]
+[ext_resource type="Texture2D" uid="uid://dw8vv7jk41n7e" path="res://mniej2.png" id="4_51wdj"]
+[ext_resource type="Texture2D" uid="uid://dg3oiuquhy5sm" path="res://wiecej2.png" id="4_bfsj0"]
+[ext_resource type="Texture2D" uid="uid://mmf8ueq12cn" path="res://roll2.png" id="4_e26n0"]
+[ext_resource type="Texture2D" uid="uid://c4ukr5qkt2igj" path="res://die12.png" id="4_f8jh3"]
+[ext_resource type="Texture2D" uid="uid://dv4mkl3gdrvb6" path="res://cup2.png" id="4_vdsmb"]
+[ext_resource type="Texture2D" uid="uid://dehuorwjqy8p" path="res://die21.png" id="5_sx3wn"]
+[ext_resource type="Texture2D" uid="uid://c143suce13853" path="res://die22.png" id="6_nh1ws"]
+[ext_resource type="Texture2D" uid="uid://uiyq87guwtjk" path="res://die31.png" id="7_p4hfl"]
+[ext_resource type="Texture2D" uid="uid://bdmgi345taodq" path="res://die33.png" id="8_c6k7n"]
+[ext_resource type="Texture2D" uid="uid://cv7cudvibywge" path="res://die41.png" id="9_rwon1"]
+[ext_resource type="Texture2D" uid="uid://cmbtqm0q03pqe" path="res://die42.png" id="10_ahemf"]
+[ext_resource type="Texture2D" uid="uid://delw306d1iatf" path="res://die51.png" id="11_15nrr"]
+[ext_resource type="Texture2D" uid="uid://dc07bd203m1k6" path="res://die52.png" id="12_6g5rx"]
+[ext_resource type="Texture2D" uid="uid://cai0pr33xf13l" path="res://die61.png" id="13_mjo45"]
+[ext_resource type="Texture2D" uid="uid://bvnkvhfud8jdg" path="res://die62.png" id="14_sswp6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_knqkg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gs3rd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f8jh3")
+}],
+"loop": true,
+"name": &"die1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_sx3wn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nh1ws")
+}],
+"loop": true,
+"name": &"die2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_p4hfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_c6k7n")
+}],
+"loop": true,
+"name": &"die3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_rwon1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ahemf")
+}],
+"loop": true,
+"name": &"die4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_15nrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6g5rx")
+}],
+"loop": true,
+"name": &"die5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_mjo45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_sswp6")
+}],
+"loop": true,
+"name": &"die6",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gn3yh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_uc315")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e26n0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uc315"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ibi2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_51wdj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ibi2q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cjklt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bfsj0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_j8p6f"]
+resource_name = "EvilCupRoll"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cup:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.5, 0.76666665, 1.0666667, 1.3666667, 1.7666667, 2.0666666, 2.3666666, 2.5333333, 2.7, 2.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1400, -645), Vector2(910, 209), Vector2(625, 255), Vector2(1047, 316), Vector2(1286, 134), Vector2(921, 153), Vector2(479.99994, 256), Vector2(1224, 279), Vector2(430, 275), Vector2(1341, 245), Vector2(908, 184), Vector2(906, -212)]
+}
+
+[sub_resource type="Animation" id="Animation_yqda1"]
+resource_name = "PlayerCupRoll"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCup:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.26666668, 0.7, 1.0333333, 1.4, 1.8666667, 2.1666667, 2.5333333, 2.9333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(867, 1544), Vector2(890, 834.00006), Vector2(518, 777), Vector2(1334, 792), Vector2(772.00006, 678), Vector2(1395, 845), Vector2(506.00018, 830), Vector2(871, 777), Vector2(852.00006, 1476)]
+}
+
+[sub_resource type="Animation" id="Animation_onxbv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cup:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(705, -186)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerCup:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(598, 1325)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yqda1"]
+_data = {
+&"EvilCupRoll": SubResource("Animation_j8p6f"),
+&"PlayerCupRoll": SubResource("Animation_yqda1"),
+&"RESET": SubResource("Animation_onxbv")
+}
+
+[node name="DiceGame" type="Node2D"]
+script = ExtResource("1_a4m0k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(957, 601)
+scale = Vector2(1, 1.1462964)
+texture = ExtResource("2_j8p6f")
+
+[node name="DicePlayer" type="Node2D" parent="."]
+
+[node name="EvilDie1" type="AnimatedSprite2D" parent="DicePlayer"]
+visible = false
+position = Vector2(829, 266)
+sprite_frames = SubResource("SpriteFrames_knqkg")
+animation = &"die1"
+
+[node name="EvilDie2" type="AnimatedSprite2D" parent="DicePlayer"]
+visible = false
+position = Vector2(977, 285)
+sprite_frames = SubResource("SpriteFrames_knqkg")
+animation = &"die1"
+
+[node name="PlayerDie1" type="AnimatedSprite2D" parent="DicePlayer"]
+visible = false
+position = Vector2(943, 883)
+sprite_frames = SubResource("SpriteFrames_knqkg")
+animation = &"die1"
+
+[node name="PlayerDie2" type="AnimatedSprite2D" parent="DicePlayer"]
+visible = false
+position = Vector2(811, 878)
+sprite_frames = SubResource("SpriteFrames_knqkg")
+animation = &"die1"
+
+[node name="DiceButton" type="Button" parent="DicePlayer"]
+offset_left = 820.0
+offset_top = 516.0
+offset_right = 1025.0
+offset_bottom = 597.0
+text = "Roll"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/DiceButton"]
+position = Vector2(95, 39)
+sprite_frames = SubResource("SpriteFrames_gn3yh")
+frame_progress = 0.6123385
+
+[node name="BetLower" type="Button" parent="DicePlayer"]
+visible = false
+offset_left = 244.0
+offset_top = 517.0
+offset_right = 460.0
+offset_bottom = 579.0
+text = "Lower"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/BetLower"]
+position = Vector2(108, 30)
+sprite_frames = SubResource("SpriteFrames_uc315")
+frame_progress = 0.99660516
+
+[node name="BetHigher" type="Button" parent="DicePlayer"]
+visible = false
+offset_left = 1425.0
+offset_top = 522.0
+offset_right = 1645.0
+offset_bottom = 588.0
+text = "Higher"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DicePlayer/BetHigher"]
+position = Vector2(106, 43)
+sprite_frames = SubResource("SpriteFrames_ibi2q")
+frame_progress = 0.13827896
+
+[node name="Cup" type="Sprite2D" parent="."]
+position = Vector2(705, -186)
+scale = Vector2(1.2312524, 0.8131334)
+texture = ExtResource("3_yqda1")
+
+[node name="EvilCupTimer" type="Timer" parent="Cup"]
+wait_time = 2.8
+one_shot = true
+
+[node name="PlayerCup" type="Sprite2D" parent="."]
+position = Vector2(598, 1325)
+scale = Vector2(1.11328, 0.85251254)
+texture = ExtResource("4_vdsmb")
+
+[node name="PlayerCupTimer" type="Timer" parent="PlayerCup"]
+wait_time = 2.8
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_yqda1")
+}
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1472.0
+offset_top = 797.0
+offset_right = 1734.0
+offset_bottom = 1030.0
+text = "Rzuć wyzwanie w kości. Wybierz, czy jesteś w stanie wyrzucić więcej, czy mniej oczek. Za poprawną odpowiedź dostaniesz 50 punktów, za złą, tyle samo stracisz. Po 350 punktach, zakończysz ten poziom."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="timeout" from="Cup/EvilCupTimer" to="." method="_on_evil_cup_timer_timeout"]
+[connection signal="timeout" from="PlayerCup/PlayerCupTimer" to="." method="_on_player_cup_timer_timeout"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://drumpsoxvje1i"]
+
+[ext_resource type="Texture2D" uid="uid://re3l2u64xwxl" path="res://Assets/zamknięte.png" id="1_vpsf6"]
+
+[node name="closed" type="Sprite2D"]
+texture = ExtResource("1_vpsf6")

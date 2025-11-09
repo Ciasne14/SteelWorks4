@@ -1,15 +1,19 @@
 extends CharacterBody2D
 
-const SPEED := 150.0
+const SPEED := 550.0
 @onready var shader: Sprite2D = $Shader
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var camera: Camera2D = %Camera2D2
+@onready var bubble: Sprite2D = $Bubble
+@onready var label: RichTextLabel = $Bubble/RichTextLabel
 
 @export var eye_scene: PackedScene
 var is_throwing := false
 
 func _ready() -> void:
 	animated_sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
+	if Game.checkpoint_pos != Vector2(-999, -999):
+		global_position = Game.checkpoint_pos
 
 func _physics_process(delta: float) -> void:
 	var h := Input.get_axis("left", "right")
@@ -90,3 +94,7 @@ func throw_eye():
 	camera.zoom = Vector2(1, 1)
 	camera.make_current()
 	animated_sprite.play()
+
+func speech(incoming_text):
+	bubble.visible = true
+	label.text = incoming_text

@@ -35,8 +35,9 @@ func _spawn_balloon():
 func add_score(points: int):
 	score += points
 	if(score>349):
-		get_tree().change_scene_to_file("res://Scenes/game.tscn")
+		Game.balloons_finished = true
 		Game.games_finished()
+		get_tree().change_scene_to_file("res://Scenes/game.tscn")
 	_update_ui()
 
 func lose_life():

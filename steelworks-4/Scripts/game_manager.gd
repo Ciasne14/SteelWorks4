@@ -8,5 +8,6 @@ var dice_finished = false
 var main_key = false
 
 func games_finished():
+	print(balloons_finished, hammer_finished, dice_finished)
 	if balloons_finished and hammer_finished and dice_finished:
 		main_key = true

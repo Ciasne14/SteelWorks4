@@ -9,7 +9,9 @@ func _ready() -> void:
 	event.keycode = KEY_Q
 	InputMap.add_action('throw')
 	InputMap.action_add_event('throw', event)
-	
+	$hammer.visible = Game.hammer_finished
+	$balloons.visible = Game.balloons_finished
+	$dice_game.visible = Game.dice_finished
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

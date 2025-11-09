@@ -17,13 +17,17 @@ var score := 0
 var less: bool
 
 func _ready():
-	$DicePlayer/DiceButton/AnimatedSprite2D.play()
-	$DicePlayer/BetLower/AnimatedSprite2D.play()
-	$DicePlayer/BetHigher/AnimatedSprite2D.play()
-	dice_button.pressed.connect(_on_roll_pressed)
-	bet_more_button.pressed.connect(_on_bet_more_pressed)
-	bet_less_button.pressed.connect(_on_bet_less_pressed)
-	_reset_game()
+	print("test")
+	if Game.dice_finished == true:
+		get_tree().change_scene_to_file("res://Scenes/game.tscn")
+	else:
+		$DicePlayer/DiceButton/AnimatedSprite2D.play()
+		$DicePlayer/BetLower/AnimatedSprite2D.play()
+		$DicePlayer/BetHigher/AnimatedSprite2D.play()
+		dice_button.pressed.connect(_on_roll_pressed)
+		bet_more_button.pressed.connect(_on_bet_more_pressed)
+		bet_less_button.pressed.connect(_on_bet_less_pressed)
+		_reset_game()
 
 # Generowanie wyniku na stole
 func _roll_table():
@@ -47,19 +51,20 @@ func _roll_player():
 	player_roll = player_roll_1 + player_roll_2  # Suma dwóch kości od 2 do 12
 	
 	if(less && player_roll < roll_result):
-		score=score+50
+		score=score+500
 	elif(less && player_roll > roll_result):
 		score=score-50
 	elif(!less && player_roll < roll_result):
 		score=score-50
 	elif(!less && player_roll > roll_result):
-		score=score+50
+		score=score+500
 	else:
 		score=score-50
 	$Label2.text = str(score)
 	if(score>349):
-		get_tree().change_scene_to_file("res://Scenes/game.tscn")
+		Game.dice_finished = true
 		Game.games_finished()
+		get_tree().change_scene_to_file("res://Scenes/game.tscn")
 # Obstawienie "więcej"
 func _on_bet_more_pressed():
 	$DicePlayer/DiceButton.visible = true
