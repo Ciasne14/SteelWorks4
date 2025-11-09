@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4c8nsbu46naw"]
+
+[ext_resource type="Texture2D" uid="uid://blj8y66gx7egu" path="res://Assets/Warstwa 6.png" id="1_spbgx"]
+
+[node name="szafa" type="Sprite2D"]
+texture = ExtResource("1_spbgx")
