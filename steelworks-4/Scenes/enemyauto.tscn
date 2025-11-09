@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bk8smn7eq8yrd"]
+[gd_scene load_steps=11 format=3 uid="uid://bk8smn7eq8yrd"]
 
 [ext_resource type="Script" uid="uid://cr5c7hf3sbv11" path="res://Scripts/enemy.gd" id="1_minrr"]
 [ext_resource type="Texture2D" uid="uid://b0tr20tg30w64" path="res://Assets/waciak.png" id="2_p1unt"]
+[ext_resource type="AudioStream" uid="uid://bxbeb0ck0wq8l" path="res://Cute Pop Sound Effects [QvghQOO3K-I].mp3" id="3_minrr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_minrr"]
 atlas = ExtResource("2_p1unt")
@@ -84,6 +85,11 @@ shape = SubResource("CircleShape2D_auwsv")
 [node name="collision_box" type="CollisionShape2D" parent="."]
 position = Vector2(0, -45)
 shape = SubResource("CircleShape2D_p1unt")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_minrr")
+volume_db = 24.0
+autoplay = true
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
