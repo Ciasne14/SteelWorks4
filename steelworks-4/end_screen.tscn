@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c80v73kocsixr"]
+[gd_scene load_steps=3 format=3 uid="uid://c80v73kocsixr"]
 
 [ext_resource type="Script" uid="uid://dp6jdtm3lyjm0" path="res://end_screen.gd" id="1_my301"]
+[ext_resource type="Texture2D" uid="uid://bgiu4akri3ncm" path="res://endcreenbg.png" id="2_abjgy"]
 
 [node name="EndScreen" type="Control"]
 layout_mode = 3
@@ -18,33 +19,35 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_abjgy")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -68.5
-offset_top = -50.5
-offset_right = 68.5
-offset_bottom = 50.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Again" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 509.40564
+offset_top = 144.43597
+offset_right = 1406.2566
+offset_bottom = 411.577
+rotation = -0.053352397
 
-[node name="Again" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Zagraj ponownie"
+[node name="Menu" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 668.2347
+offset_top = 376.62418
+offset_right = 1274.7478
+offset_bottom = 670.21185
+rotation = 0.04884791
 
-[node name="Menu" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Menu główne"
+[node name="Exit" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 634.78217
+offset_top = 606.0884
+offset_right = 1374.9128
+offset_bottom = 872.22
+rotation = 0.2732712
 
-[node name="Exit" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Zamknij grę"
-
-[connection signal="button_down" from="VBoxContainer/Again" to="." method="_on_again_button_down"]
-[connection signal="button_down" from="VBoxContainer/Menu" to="." method="_on_menu_button_down"]
-[connection signal="button_down" from="VBoxContainer/Exit" to="." method="_on_exit_button_down"]
+[connection signal="button_down" from="Again" to="." method="_on_again_button_down"]
+[connection signal="button_down" from="Menu" to="." method="_on_menu_button_down"]
+[connection signal="button_down" from="Exit" to="." method="_on_exit_button_down"]
