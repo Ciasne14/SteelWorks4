@@ -5,6 +5,7 @@ var str_value = 0
 @export var strike = 5
 var jump_force = 15
 var score = 0
+signal finished
 
 @onready var ball : RigidBody2D = $RigidBody2D
 
@@ -45,6 +46,11 @@ func _on_hammerfall_timeout() -> void:
 	str_value=0
 	
 	if(score>349):
+		Game.hammer_finished = true
 		Game.games_finished()
 		get_tree().change_scene_to_file("res://Scenes/game.tscn")
 	$RigidBody2D/PointLight2D.visible = true
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		emit_signal("finished")

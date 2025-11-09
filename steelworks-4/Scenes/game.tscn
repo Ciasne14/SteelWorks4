@@ -134,15 +134,18 @@ affect_navigation_mesh = true
 [node name="hammer" parent="." instance=ExtResource("6_v158k")]
 position = Vector2(610, 3593)
 target_scene = ExtResource("7_h4fw4")
+is_minigame = true
 
 [node name="balloons" parent="." instance=ExtResource("6_v158k")]
 position = Vector2(5441.0005, 743)
 scale = Vector2(5.985, 1)
 target_scene = ExtResource("8_ldgsr")
+is_minigame = true
 
 [node name="dice_game" parent="." instance=ExtResource("6_v158k")]
 position = Vector2(-6429, -1020)
 target_scene = ExtResource("9_h4fw4")
+is_minigame = true
 
 [node name="endgame" parent="." instance=ExtResource("6_v158k")]
 position = Vector2(7042, -3058)
@@ -158,3 +161,5 @@ scale = Vector2(44.235, 5)
 
 [node name="Thought_trigger" parent="." instance=ExtResource("11_o5yvi")]
 position = Vector2(-4025, 996)
+
+[node name="MinigameLayer" type="CanvasLayer" parent="."]
