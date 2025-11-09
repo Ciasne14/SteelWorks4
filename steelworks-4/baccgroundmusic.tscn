@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfcj6uniy2aeb"]
+
+[ext_resource type="AudioStream" uid="uid://pnhi5qnw3g6s" path="res://Scenes/Circus Clown Music - Sound Effect (HD) [S280Pqq3T_w].mp3" id="1_gr1vs"]
+
+[node name="baccgroundmusic" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_gr1vs")
+volume_db = -31.356
+pitch_scale = 0.2
+autoplay = true
