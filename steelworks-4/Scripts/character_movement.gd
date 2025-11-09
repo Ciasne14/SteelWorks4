@@ -8,20 +8,22 @@ const SPEED := 550.0
 @onready var label: Label = $Bubble/RichTextLabel
 @onready var timer: Timer = $Timer
 @onready var image: Sprite2D = $Image
+@onready var walk_sound: AudioStreamPlayer2D = $walk_sound
 
 @export var eye_scene: PackedScene
 var is_throwing := false
 
 func _ready() -> void:
+	GlobalAudioStreamPlayer.play_music_level()
 	animated_sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
 	if Game.checkpoint_pos != Vector2(-999, -999):
 		global_position = Game.checkpoint_pos
-	$walk_sound.volume_db = Game.general_sound + Game.effect_sound 
-	$music_sound.volume_db = Game.general_sound + Game.music_sound 
+	$walk_sound.volume_db = Game.general_sound + Game.effect_sound - 20
 
 func _physics_process(delta: float) -> void:
 	var h := Input.get_axis("left", "right")
 	var v := Input.get_axis("up", "down")
+	
 	
 	if is_throwing:
 		return
@@ -39,12 +41,20 @@ func _physics_process(delta: float) -> void:
 	if animated_sprite:
 		if v > 0.0:
 			animated_sprite.animation = "down"
+			if walk_sound.playing == false:
+				walk_sound.play()
 		elif v < 0.0:
 			animated_sprite.animation = "up"
+			if walk_sound.playing == false:
+				walk_sound.play()
 		elif h != 0.0:
 			animated_sprite.animation = "walking"
+			if walk_sound.playing == false:
+				walk_sound.play()
 		else:
 			animated_sprite.animation = "default"
+			if walk_sound.playing == true:
+				walk_sound.stop()
 
 		if h > 0.0:
 			animated_sprite.flip_h = true
