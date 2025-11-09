@@ -3,6 +3,7 @@ extends Node2D
 var str_value = 0
 @export var exhaustion = 5
 @export var strike = 5
+@export var score_multiplier = 1
 var jump_force = 15
 var score = 0
 signal finished
@@ -41,7 +42,7 @@ func jump_ball():
 
 func _on_hammerfall_timeout() -> void:
 	jump_ball()
-	score = score + str_value
+	score = score + str_value*score_multiplier
 	$Label.text = str(score)
 	str_value=0
 	
