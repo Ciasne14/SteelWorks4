@@ -34,7 +34,6 @@ sprite_frames = SubResource("SpriteFrames_ww8vx")
 autoplay = "default"
 
 [node name="mainvolume" type="HSlider" parent="AnimatedSprite2D"]
-visible = false
 custom_minimum_size = Vector2(350, 0)
 offset_left = -285.0
 offset_top = -49.0
@@ -45,7 +44,6 @@ min_value = -12.0
 max_value = 12.0
 
 [node name="sfxvolume" type="HSlider" parent="AnimatedSprite2D"]
-visible = false
 custom_minimum_size = Vector2(350, 0)
 offset_left = -285.0
 offset_top = 136.0
@@ -56,7 +54,6 @@ min_value = -12.0
 max_value = 12.0
 
 [node name="musicvolume" type="HSlider" parent="AnimatedSprite2D"]
-visible = false
 custom_minimum_size = Vector2(350, 0)
 offset_left = -285.0
 offset_top = 305.0
