@@ -48,6 +48,7 @@ func lose_life():
 		#_game_over()
 
 func _update_ui():
+	score_label.visible=true
 	score_label.text = "Wynik: %d" % score
 	#lives_label.text = "Życia: %d" % lives
 

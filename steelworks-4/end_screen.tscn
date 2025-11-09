@@ -48,6 +48,7 @@ offset_right = 1374.9128
 offset_bottom = 872.22
 rotation = 0.2732712
 
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="button_down" from="Again" to="." method="_on_again_button_down"]
 [connection signal="button_down" from="Menu" to="." method="_on_menu_button_down"]
 [connection signal="button_down" from="Exit" to="." method="_on_exit_button_down"]

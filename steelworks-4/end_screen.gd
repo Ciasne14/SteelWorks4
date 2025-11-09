@@ -1,5 +1,8 @@
 extends Control
 
+func _on_ready() -> void:
+	if Game.main_key == false:
+		get_tree().change_scene_to_file("res://Scenes/game.tscn")
 
 func _on_again_button_down() -> void:
 	reset()

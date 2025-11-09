@@ -7,7 +7,7 @@ extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	if exits_game:
 		get_tree().quit()
-	if is_minigame:	
+	if is_minigame:
 		var game_scene = get_tree().current_scene
 		game_scene.start_minigame(target_scene)
 	else:

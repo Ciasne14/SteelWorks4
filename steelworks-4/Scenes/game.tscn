@@ -139,7 +139,6 @@ is_minigame = true
 position = Vector2(5441.0005, 743)
 scale = Vector2(5.985, 1)
 target_scene = ExtResource("8_ldgsr")
-is_minigame = true
 
 [node name="dice_game" parent="." instance=ExtResource("6_v158k")]
 position = Vector2(-6429, -1020)
